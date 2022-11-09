@@ -1,0 +1,12 @@
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\bin\Debug\net6.0\SchoolFaceRecognition.BusinessLayer.deps.json
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\bin\Debug\net6.0\SchoolFaceRecognition.BusinessLayer.dll
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\bin\Debug\net6.0\SchoolFaceRecognition.BusinessLayer.pdb
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BusinessLayer.AssemblyInfo.cs
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BusinessLayer.dll
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\refint\SchoolFaceRecognition.BusinessLayer.dll
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BusinessLayer.pdb
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\ref\SchoolFaceRecognition.BusinessLayer.dll

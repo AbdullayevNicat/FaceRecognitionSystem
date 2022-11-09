@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolFaceRecognition.API", "SchoolFaceRecognition.API\SchoolFaceRecognition.API.csproj", "{22D47283-85AD-4208-B9E6-083EDC76C7DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolFaceRecognition.BusinessLayer", "SchoolFaceRecognition.BusinessLayer\SchoolFaceRecognition.BusinessLayer.csproj", "{9055739A-3B15-4B42-B292-C509FA04EF27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolFaceRecognition.DAL", "SchoolFaceRecognition.DAL\SchoolFaceRecognition.DAL.csproj", "{4E6B1514-7F30-4749-BC9D-B5D2A50DAC78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolFaceRecognition.Core", "SchoolFaceRecognition.Core\SchoolFaceRecognition.Core.csproj", "{E7961889-2A92-4CAA-9347-40621DBE343D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22D47283-85AD-4208-B9E6-083EDC76C7DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22D47283-85AD-4208-B9E6-083EDC76C7DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22D47283-85AD-4208-B9E6-083EDC76C7DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22D47283-85AD-4208-B9E6-083EDC76C7DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9055739A-3B15-4B42-B292-C509FA04EF27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9055739A-3B15-4B42-B292-C509FA04EF27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9055739A-3B15-4B42-B292-C509FA04EF27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9055739A-3B15-4B42-B292-C509FA04EF27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E6B1514-7F30-4749-BC9D-B5D2A50DAC78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E6B1514-7F30-4749-BC9D-B5D2A50DAC78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E6B1514-7F30-4749-BC9D-B5D2A50DAC78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E6B1514-7F30-4749-BC9D-B5D2A50DAC78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7961889-2A92-4CAA-9347-40621DBE343D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7961889-2A92-4CAA-9347-40621DBE343D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7961889-2A92-4CAA-9347-40621DBE343D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7961889-2A92-4CAA-9347-40621DBE343D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC704EE5-6A41-4432-9213-BA98C9934E3A}
+	EndGlobalSection
+EndGlobal

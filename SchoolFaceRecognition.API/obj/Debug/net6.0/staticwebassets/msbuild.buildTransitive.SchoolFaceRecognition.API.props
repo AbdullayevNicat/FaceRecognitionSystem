@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\SchoolFaceRecognition.API.props" />
+</Project>
