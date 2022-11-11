@@ -1,11 +1,4 @@
-﻿using SchoolFaceRecognition.Core.Entities;
-
-namespace SchoolFaceRecognition.Core.DTOs
+﻿namespace SchoolFaceRecognition.Core.DTOs
 {
-    public class GroupDTO
-    {
-        public string Name { get; set; }
-
-        public SpecialityDTO Specialty { get; set; }
-    }
+    public record GroupDTO(string Name, SpecialityDTO Specialty);
 }

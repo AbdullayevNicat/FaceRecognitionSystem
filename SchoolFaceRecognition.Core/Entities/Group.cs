@@ -10,6 +10,6 @@ namespace SchoolFaceRecognition.Core.Entities
         public ICollection<Student> Students { get; set; }
 
         public int SpecialtyId { get; set; }
-        public Specialty Specialty { get; set; }
+        public Speciality Specialty { get; set; }
     }
 }

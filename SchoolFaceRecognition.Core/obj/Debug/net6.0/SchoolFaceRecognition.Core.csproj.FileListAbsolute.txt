@@ -10,3 +10,15 @@ C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFace
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.Core\obj\Debug\net6.0\refint\SchoolFaceRecognition.Core.dll
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.Core\obj\Debug\net6.0\SchoolFaceRecognition.Core.pdb
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.Core\obj\Debug\net6.0\ref\SchoolFaceRecognition.Core.dll
+C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.Core\obj\Debug\net6.0\SchoolFaceRecognition.Core.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.Core\obj\Debug\net6.0\SchoolFaceRecognition.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.Core\obj\Debug\net6.0\SchoolFaceRecognition.Core.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.Core\obj\Debug\net6.0\SchoolFaceRecognition.Core.AssemblyInfo.cs
+C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.Core\obj\Debug\net6.0\SchoolFaceRecognition.Core.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.Core\obj\Debug\net6.0\SchoolFaceRecognition.Core.dll
+C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.Core\obj\Debug\net6.0\ref\SchoolFaceRecognition.Core.dll
+C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.Core\obj\Debug\net6.0\SchoolFaceRecognition.Core.pdb
+C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.Core\bin\Debug\net6.0\SchoolFaceRecognition.Core.deps.json
+C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.Core\bin\Debug\net6.0\SchoolFaceRecognition.Core.dll
+C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.Core\bin\Debug\net6.0\SchoolFaceRecognition.Core.pdb
+C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.Core\obj\Debug\net6.0\refint\SchoolFaceRecognition.Core.dll

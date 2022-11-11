@@ -2,7 +2,7 @@
 
 namespace SchoolFaceRecognition.Core.Abstractions.Repositories
 {
-    public interface ISpecialityRepository : IRepository<Specialty>
+    public interface ISpecialityRepository : IRepository<Speciality>
     {
 
     }

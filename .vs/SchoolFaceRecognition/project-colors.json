@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e7961889-2a92-4caa-9347-40621dbe343d": {
+      "ProjectGuid": "e7961889-2a92-4caa-9347-40621dbe343d",
+      "DisplayName": "SchoolFaceRecognition.Core",
+      "ColorIndex": 0
+    },
+    "4e6b1514-7f30-4749-bc9d-b5d2a50dac78": {
+      "ProjectGuid": "4e6b1514-7f30-4749-bc9d-b5d2a50dac78",
+      "DisplayName": "SchoolFaceRecognition.DAL",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
