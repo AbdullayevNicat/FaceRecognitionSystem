@@ -1,6 +1,25 @@
+using Autofac;
+using Autofac.Core;
+using Autofac.Extensions.DependencyInjection;
+using SchoolFaceRecognition.BusinessLayer.AutoFac;
+using SchoolFaceRecognition.DAL.AutoFac;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
+
+var zad  = assemblies.Where(x => x.FullName.Contains("SchoolFaceRecognition")).ToArray();
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
+    .ConfigureContainer<ContainerBuilder>(opt =>
+    {
+        opt.RegisterAssemblyModules(assemblies);
+    });
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

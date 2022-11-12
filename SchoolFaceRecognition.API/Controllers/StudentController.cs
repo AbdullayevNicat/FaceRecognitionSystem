@@ -1,17 +1,21 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using SchoolFaceRecognition.API.Controllers.Base;
+using SchoolFaceRecognition.Core.Abstractions.Services;
 
 namespace SchoolFaceRecognition.API.Controllers
 {
-    [Authorize]
-    [ApiController]
-    [Route("api/[controller]/[action]")]
-    public class StudentController : ControllerBase
+    public class StudentController : AncestorController
     {
+        private readonly IStudentService _studentService;
+        public StudentController(IStudentService studentService)
+        {
+            _studentService= studentService;
+        }
+
         [HttpGet]
         public async Task<IActionResult> All(CancellationToken cancellationToken)
         {
-            return new ObjectResult(0);
+            return await ResultAsync(_studentService.AllAsync(cancellationToken));
         }
     }
 }

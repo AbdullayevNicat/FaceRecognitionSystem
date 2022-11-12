@@ -5,7 +5,7 @@ using SchoolFaceRecognition.DAL.Repositories.Base;
 
 namespace SchoolFaceRecognition.DAL.Repositories
 {
-    public class SpecialityRepository : Repository<Specialty>, ISpecialityRepository
+    public class SpecialityRepository : Repository<Speciality>, ISpecialityRepository
     {
         public SpecialityRepository(SchoolDbContext schoolDbContext) : base(schoolDbContext)
         {
