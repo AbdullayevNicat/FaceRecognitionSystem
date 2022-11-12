@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "yfLmIvrZEF98Xw8WQZHLSUBwhXzpIfYszXQjMIAcIStZnefsH/mxCmPN16pSSnn1jJ8AuAFEt0rIdDh6j+xoUw==",
+  "dgSpecHash": "mhG/pfdNuLmPhxvBA9BpuEEwLYcFZ/OSYb3/H/5klbpmsQDeCYIWVSblVo5uB5BATAu2FjLDDavgN5ovG7mbGQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nicat\\Desktop\\Programming\\.NET\\ASP.NET\\SchoolFaceRecognition\\SchoolFaceRecognition\\SchoolFaceRecognition.BusinessLayer\\SchoolFaceRecognition.BusinessLayer.csproj",
+  "projectFilePath": "C:\\Users\\Nicat\\Desktop\\Programming\\.NET\\ASP.NET\\SchoolFaceRecognition\\SchoolFaceRecognition\\SchoolFaceRecognition.BusinessLayer\\SchoolFaceRecognition.BL.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Nicat\\.nuget\\packages\\autofac\\6.4.0\\autofac.6.4.0.nupkg.sha512",
     "C:\\Users\\Nicat\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Nicat\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.11\\microsoft.aspnetcore.cryptography.internal.6.0.11.nupkg.sha512",
     "C:\\Users\\Nicat\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.11\\microsoft.aspnetcore.cryptography.keyderivation.6.0.11.nupkg.sha512",

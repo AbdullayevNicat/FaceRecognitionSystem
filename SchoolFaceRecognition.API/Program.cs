@@ -1,6 +1,23 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using SchoolFaceRecognition.BL.AutoFac;
+using SchoolFaceRecognition.BL.AutoMappers;
+using SchoolFaceRecognition.DAL.AutoFac;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddAutoMapper(opt => {
+    opt.AddProfile<DtoMappings>();
+});
+
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
+    .ConfigureContainer<ContainerBuilder>(opt =>
+    {
+        opt.RegisterModule<RepoModule>();
+        opt.RegisterModule<ServiceModule>();
+    });
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

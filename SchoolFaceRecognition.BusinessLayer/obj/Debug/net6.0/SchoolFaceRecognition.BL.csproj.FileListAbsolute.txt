@@ -1,0 +1,17 @@
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\bin\Debug\net6.0\SchoolFaceRecognition.BL.deps.json
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\bin\Debug\net6.0\SchoolFaceRecognition.BL.dll
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\bin\Debug\net6.0\SchoolFaceRecognition.BL.pdb
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\bin\Debug\net6.0\SchoolFaceRecognition.Core.dll
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\bin\Debug\net6.0\SchoolFaceRecognition.Core.pdb
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BL.csproj.AssemblyReference.cache
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BL.Constants.resources
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BL.csproj.GenerateResource.cache
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BL.AssemblyInfoInputs.cache
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BL.AssemblyInfo.cs
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BL.csproj.CoreCompileInputs.cache
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BL.csproj.CopyComplete
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BL.dll
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\refint\SchoolFaceRecognition.BL.dll
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BL.pdb
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\ref\SchoolFaceRecognition.BL.dll

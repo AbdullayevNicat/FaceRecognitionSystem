@@ -7,7 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.4.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SchoolFaceRecognition.BusinessLayer\SchoolFaceRecognition.BL.csproj" />
+    <ProjectReference Include="..\SchoolFaceRecognition.Core\SchoolFaceRecognition.Core.csproj" />
+    <ProjectReference Include="..\SchoolFaceRecognition.DAL\SchoolFaceRecognition.DAL.csproj" />
   </ItemGroup>
 
 </Project>

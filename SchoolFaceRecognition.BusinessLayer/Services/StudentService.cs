@@ -7,7 +7,7 @@ using SchoolFaceRecognition.Core.DTOs.Base;
 using SchoolFaceRecognition.Core.Entities;
 using System.Net;
 
-namespace SchoolFaceRecognition.BusinessLayer.Services
+namespace SchoolFaceRecognition.BL.Services
 {
     public class StudentService : IStudentService
     {
@@ -24,7 +24,7 @@ namespace SchoolFaceRecognition.BusinessLayer.Services
             _mapper = mapper;
         }
 
-        public async Task<Response<IEnumerable<Student>>> All(CancellationToken cancellationToken = default)
+        public async Task<Response<IEnumerable<StudentDTO>>> AllAsync(CancellationToken cancellationToken = default)
         {
             try
             {
@@ -33,13 +33,13 @@ namespace SchoolFaceRecognition.BusinessLayer.Services
 
                 IEnumerable<StudentDTO> studentDTOs = _mapper.Map<IEnumerable<StudentDTO>>(students);
 
-                return new Response<IEnumerable<Student>>(students, HttpStatusCode.OK);
+                return new Response<IEnumerable<StudentDTO>>(studentDTOs, HttpStatusCode.OK);
             }
             catch (Exception exp)
             {
                 _logger.LogError(exp, exp.Message);
-                return new Response<IEnumerable<Student>>(HttpStatusCode.InternalServerError,
-                                                        StringLiterals.UserInternalErrorMessage);
+                return new Response<IEnumerable<StudentDTO>>(HttpStatusCode.InternalServerError,
+                                                        Constants.UserInternalErrorMessage);
             }
         }
     }
