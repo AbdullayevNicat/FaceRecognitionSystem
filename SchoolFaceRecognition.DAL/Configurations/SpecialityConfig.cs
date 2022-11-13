@@ -18,7 +18,7 @@ namespace SchoolFaceRecognition.DAL.Configurations
                 .HasMaxLength(50);
 
             builder.HasMany(x => x.Groups)
-                .WithOne(x => x.Specialty);
+                .WithOne(x => x.Speciality);
 
             builder.HasIndex(x => x.Code)
                 .IsUnique().HasDatabaseName("UK_SPECIALITY_CODE");

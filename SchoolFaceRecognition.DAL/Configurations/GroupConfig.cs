@@ -19,7 +19,7 @@ namespace SchoolFaceRecognition.DAL.Configurations
             builder.HasMany(x => x.Students)
                 .WithOne(x => x.Group);
 
-            builder.HasOne(x => x.Specialty)
+            builder.HasOne(x => x.Speciality)
                 .WithMany(x => x.Groups)
                     .HasForeignKey(x => x.SpecialityId).OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_GROUPS_SPECIALITY_ID");

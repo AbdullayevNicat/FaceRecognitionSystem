@@ -1,4 +1,4 @@
 ﻿namespace SchoolFaceRecognition.Core.DTOs
 {
-    public record GroupDTO(string Name, SpecialityDTO Specialty);
+    public record GroupDTO(string Name, SpecialityDTO Speciality);
 }
