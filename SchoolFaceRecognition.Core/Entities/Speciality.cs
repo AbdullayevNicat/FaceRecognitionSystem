@@ -1,10 +1,9 @@
-﻿using SchoolFaceRecognition.Core.Abstractions;
+﻿using SchoolFaceRecognition.Core.Entities.Base;
 
 namespace SchoolFaceRecognition.Core.Entities
 {
-    public class Speciality : IEntity
+    public class Speciality : EntityBase
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
 

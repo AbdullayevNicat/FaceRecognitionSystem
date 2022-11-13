@@ -18,7 +18,9 @@ namespace SchoolFaceRecognition.DAL.AutoFac
 
                 DbContextOptionsBuilder<SchoolDbContext> opt = new();
 
-                opt.UseOracle(configuration.GetConnectionString("Oracle"));
+                //opt.UseOracle(configuration.GetConnectionString("ORACLE"));
+
+                opt.UseSqlServer(configuration.GetConnectionString("MSSQL"));
 
                 return new SchoolDbContext(opt.Options);
 

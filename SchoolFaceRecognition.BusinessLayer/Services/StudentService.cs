@@ -33,6 +33,9 @@ namespace SchoolFaceRecognition.BL.Services
 
                 IEnumerable<StudentDTO> studentDTOs = _mapper.Map<IEnumerable<StudentDTO>>(students);
 
+                if (students.Count() == 0)
+                    return new Response<IEnumerable<StudentDTO>>(studentDTOs, HttpStatusCode.NotFound);
+
                 return new Response<IEnumerable<StudentDTO>>(studentDTOs, HttpStatusCode.OK);
             }
             catch (Exception exp)
