@@ -15,8 +15,6 @@ namespace SchoolFaceRecognition.DAL.Repositories.Base
 
         }
 
-        public DbSet<T> _dbSet => _schoolDbContext.Set<T>();
-
         public async Task AddArrangeAsync(CancellationToken cancellationToken = default, params T[] entities)
         {
             await _schoolDbContext.AddRangeAsync(entities,cancellationToken);
@@ -44,12 +42,12 @@ namespace SchoolFaceRecognition.DAL.Repositories.Base
 
         public async Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken = default)
         {
-            return await _dbSet.ToListAsync(cancellationToken);
+            return await _schoolDbContext.Set<T>().ToListAsync(cancellationToken);
         }
 
         public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> expression, CancellationToken cancellationToken = default)
         {
-            return await _dbSet.Where(expression).ToListAsync(cancellationToken);
+            return await _schoolDbContext.Set<T>().Where(expression).ToListAsync(cancellationToken);
         }
 
         public void UpdateArrange(CancellationToken cancellationToken = default, params T[] entities)

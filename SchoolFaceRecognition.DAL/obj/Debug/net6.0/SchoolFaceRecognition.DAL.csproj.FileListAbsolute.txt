@@ -28,3 +28,5 @@ C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceReco
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.DAL\obj\Debug\net6.0\refint\SchoolFaceRecognition.DAL.dll
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.DAL\obj\Debug\net6.0\SchoolFaceRecognition.DAL.pdb
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.DAL\obj\Debug\net6.0\ref\SchoolFaceRecognition.DAL.dll
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.DAL\bin\Debug\net6.0\SchoolFaceRecognition.DAL.runtimeconfig.json
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.DAL\obj\Debug\net6.0\SchoolFaceRecognition.DAL.genruntimeconfig.cache

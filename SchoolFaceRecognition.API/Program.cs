@@ -7,6 +7,7 @@ using SchoolFaceRecognition.DAL.AutoFac;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddAutoMapper(opt => {
     opt.AddProfile<DtoMappings>();
