@@ -7,7 +7,7 @@ using SchoolFaceRecognition.Core.DTOs.Base;
 using SchoolFaceRecognition.Core.Entities;
 using System.Net;
 
-namespace SchoolFaceRecognition.BusinessLayer.Services
+namespace SchoolFaceRecognition.BL.Services
 {
     public class StudentService : IStudentService
     {
@@ -32,6 +32,9 @@ namespace SchoolFaceRecognition.BusinessLayer.Services
                             .StudentRepository.GetAllAsync(cancellationToken);
 
                 IEnumerable<StudentDTO> studentDTOs = _mapper.Map<IEnumerable<StudentDTO>>(students);
+
+                if (students.Count() == 0)
+                    return new Response<IEnumerable<StudentDTO>>(studentDTOs, HttpStatusCode.NotFound);
 
                 return new Response<IEnumerable<StudentDTO>>(studentDTOs, HttpStatusCode.OK);
             }

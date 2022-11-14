@@ -1,8 +1,8 @@
 ﻿using Autofac;
-using SchoolFaceRecognition.BusinessLayer.Services;
+using SchoolFaceRecognition.BL.Services;
 using SchoolFaceRecognition.Core.Abstractions.Services;
 
-namespace SchoolFaceRecognition.BusinessLayer.AutoFac
+namespace SchoolFaceRecognition.BL.AutoFac
 {
     public class ServiceModule : Module
     {

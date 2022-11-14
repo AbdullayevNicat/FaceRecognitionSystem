@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SchoolFaceRecognition.BusinessLayer {
+namespace SchoolFaceRecognition.BL {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace SchoolFaceRecognition.BusinessLayer {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SchoolFaceRecognition.BusinessLayer.Constants", typeof(Constants).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SchoolFaceRecognition.BL.Constants", typeof(Constants).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

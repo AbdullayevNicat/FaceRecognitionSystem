@@ -990,9 +990,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Desktop\\SchoolFaceRecognition\\FaceRecognitionSystem\\SchoolFaceRecognition.BusinessLayer\\SchoolFaceRecognition.BusinessLayer.csproj",
-      "projectName": "SchoolFaceRecognition.BusinessLayer",
-      "projectPath": "C:\\Users\\user\\Desktop\\SchoolFaceRecognition\\FaceRecognitionSystem\\SchoolFaceRecognition.BusinessLayer\\SchoolFaceRecognition.BusinessLayer.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\SchoolFaceRecognition\\FaceRecognitionSystem\\SchoolFaceRecognition.BusinessLayer\\SchoolFaceRecognition.BL.csproj",
+      "projectName": "SchoolFaceRecognition.BL",
+      "projectPath": "C:\\Users\\user\\Desktop\\SchoolFaceRecognition\\FaceRecognitionSystem\\SchoolFaceRecognition.BusinessLayer\\SchoolFaceRecognition.BL.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\user\\Desktop\\SchoolFaceRecognition\\FaceRecognitionSystem\\SchoolFaceRecognition.BusinessLayer\\obj\\",
       "projectStyle": "PackageReference",

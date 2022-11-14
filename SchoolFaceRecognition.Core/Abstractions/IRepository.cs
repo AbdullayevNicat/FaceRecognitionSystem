@@ -5,8 +5,6 @@ namespace SchoolFaceRecognition.Core.Abstractions
 {
     public interface IRepository<T> where T : class, IEntity
     {
-        DbSet<T> _dbSet { get; }
-
         Task AddAsync(T entity, CancellationToken cancellationToken = default);
         Task AddArrangeAsync(CancellationToken cancellationToken = default, params T[] entities);
 

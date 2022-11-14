@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yxn89NyuYHS9P6lJbMn/ZvVZc5w8IcuU/pst4RLm0ka7izvri+X26WkZ5PCbWQQ/BEKfddGJsy+1RcMyvx9/aA==",
+  "dgSpecHash": "EzTHXj6xbfliP5MJfVcsyQiPoacH5z0Y5Ody7Yx/DU6qFRXTCeUCD4v7duUjK2V0HDab8LTgS71WaJVyXwMIjQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\SchoolFaceRecognition\\FaceRecognitionSystem\\SchoolFaceRecognition.BusinessLayer\\SchoolFaceRecognition.BusinessLayer.csproj",
+  "projectFilePath": "C:\\Users\\user\\Desktop\\SchoolFaceRecognition\\FaceRecognitionSystem\\SchoolFaceRecognition.BusinessLayer\\SchoolFaceRecognition.BL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\autofac\\6.4.0\\autofac.6.4.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",

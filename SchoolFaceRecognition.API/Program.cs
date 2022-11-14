@@ -1,24 +1,23 @@
 using Autofac;
-using Autofac.Core;
 using Autofac.Extensions.DependencyInjection;
-using SchoolFaceRecognition.BusinessLayer.AutoFac;
+using SchoolFaceRecognition.BL.AutoFac;
+using SchoolFaceRecognition.BL.AutoMappers;
 using SchoolFaceRecognition.DAL.AutoFac;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddHttpContextAccessor();
 
-Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
-
-var zad  = assemblies.Where(x => x.FullName.Contains("SchoolFaceRecognition")).ToArray();
-
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(opt => {
+    opt.AddProfile<DtoMappings>();
+});
 
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     .ConfigureContainer<ContainerBuilder>(opt =>
     {
-        opt.RegisterAssemblyModules(assemblies);
+        opt.RegisterModule<RepoModule>();
+        opt.RegisterModule<ServiceModule>();
     });
 
 builder.Services.AddControllers();

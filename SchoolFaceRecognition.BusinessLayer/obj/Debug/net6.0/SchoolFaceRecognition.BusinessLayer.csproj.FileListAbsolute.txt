@@ -27,3 +27,8 @@ C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceReco
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.BusinessLayer\bin\Debug\net6.0\SchoolFaceRecognition.Core.pdb
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BusinessLayer.csproj.CopyComplete
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BusinessLayer.Constants.resources
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\bin\Debug\net6.0\SchoolFaceRecognition.Core.dll
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\bin\Debug\net6.0\SchoolFaceRecognition.Core.pdb
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BusinessLayer.Constants.resources
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BusinessLayer.csproj.GenerateResource.cache
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BusinessLayer.csproj.CopyComplete

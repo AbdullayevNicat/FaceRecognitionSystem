@@ -24,9 +24,13 @@ namespace SchoolFaceRecognition.Core.DTOs.Base
         }
 
         public Response(HttpStatusCode httpStatusCode, string error) :
-            this(httpStatusCode, new List<string>()) => Errors.Add(error);
+            this(httpStatusCode) => Errors.Add(error);
 
-        public Response(HttpStatusCode httpStatusCode) => Code = httpStatusCode;
+        public Response(HttpStatusCode httpStatusCode)
+        {
+            Code = httpStatusCode;
+            Errors = new List<string>();
+        }
 
     }
 }
