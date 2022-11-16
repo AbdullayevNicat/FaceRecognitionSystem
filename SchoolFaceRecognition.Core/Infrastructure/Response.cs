@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace SchoolFaceRecognition.Core.DTOs.Base
+namespace SchoolFaceRecognition.Core.Infrastructure
 {
     public class Response<T>
     {
@@ -11,13 +11,13 @@ namespace SchoolFaceRecognition.Core.DTOs.Base
 
         public IList<string> Errors { get; set; }
 
-        public Response(T data, HttpStatusCode httpStatusCode) : 
+        public Response(T data, HttpStatusCode httpStatusCode) :
             this(httpStatusCode)
         {
             Data = data;
         }
 
-        public Response(HttpStatusCode httpStatusCode, IEnumerable<string> errors) : 
+        public Response(HttpStatusCode httpStatusCode, IEnumerable<string> errors) :
             this(httpStatusCode)
         {
             Errors = errors?.ToList() ?? new List<string>();

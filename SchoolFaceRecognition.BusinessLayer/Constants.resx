@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DataNotFoundMessage" xml:space="preserve">
+    <value>Məlumat tapılmadı.</value>
+  </data>
   <data name="UserInternalErrorMessage" xml:space="preserve">
     <value>Daxili xəta baş verdi.</value>
   </data>

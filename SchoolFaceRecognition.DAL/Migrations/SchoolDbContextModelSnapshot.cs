@@ -163,6 +163,11 @@ namespace SchoolFaceRecognition.DAL.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("City")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("City");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -553,13 +558,13 @@ namespace SchoolFaceRecognition.DAL.Migrations
 
             modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Group", b =>
                 {
-                    b.HasOne("SchoolFaceRecognition.Core.Entities.Speciality", "Specialty")
+                    b.HasOne("SchoolFaceRecognition.Core.Entities.Speciality", "Speciality")
                         .WithMany("Groups")
                         .HasForeignKey("SpecialityId")
                         .IsRequired()
                         .HasConstraintName("FK_GROUPS_SPECIALITY_ID");
 
-                    b.Navigation("Specialty");
+                    b.Navigation("Speciality");
                 });
 
             modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Student", b =>

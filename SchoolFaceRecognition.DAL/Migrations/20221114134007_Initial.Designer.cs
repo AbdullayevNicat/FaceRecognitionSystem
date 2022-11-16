@@ -12,7 +12,7 @@ using SchoolFaceRecognition.DAL.AppDbContext;
 namespace SchoolFaceRecognition.DAL.Migrations
 {
     [DbContext(typeof(SchoolDbContext))]
-    [Migration("20221113112141_Initial")]
+    [Migration("20221114134007_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -555,13 +555,13 @@ namespace SchoolFaceRecognition.DAL.Migrations
 
             modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Group", b =>
                 {
-                    b.HasOne("SchoolFaceRecognition.Core.Entities.Speciality", "Specialty")
+                    b.HasOne("SchoolFaceRecognition.Core.Entities.Speciality", "Speciality")
                         .WithMany("Groups")
                         .HasForeignKey("SpecialityId")
                         .IsRequired()
                         .HasConstraintName("FK_GROUPS_SPECIALITY_ID");
 
-                    b.Navigation("Specialty");
+                    b.Navigation("Speciality");
                 });
 
             modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Student", b =>

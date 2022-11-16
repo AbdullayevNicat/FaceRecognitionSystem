@@ -1,5 +1,5 @@
-﻿using SchoolFaceRecognition.Core.DTOs;
-using SchoolFaceRecognition.Core.DTOs.Base;
+﻿using SchoolFaceRecognition.Core.DTOs.Entities;
+using SchoolFaceRecognition.Core.Infrastructure;
 
 namespace SchoolFaceRecognition.Core.Abstractions.Services
 {

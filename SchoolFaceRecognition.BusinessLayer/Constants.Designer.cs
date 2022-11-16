@@ -61,6 +61,15 @@ namespace SchoolFaceRecognition.BL {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Məlumat tapılmadı..
+        /// </summary>
+        internal static string DataNotFoundMessage {
+            get {
+                return ResourceManager.GetString("DataNotFoundMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Daxili xəta baş verdi..
         /// </summary>
         internal static string UserInternalErrorMessage {

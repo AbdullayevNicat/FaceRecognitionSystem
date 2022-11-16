@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SchoolFaceRecognition.Core.DTOs.Base;
+using SchoolFaceRecognition.Core.Infrastructure;
 using System.Net;
 
 namespace SchoolFaceRecognition.API.Controllers.Base

@@ -20,7 +20,9 @@ namespace SchoolFaceRecognition.DAL.AutoFac
 
                 //opt.UseOracle(configuration.GetConnectionString("ORACLE"));
 
-                opt.UseSqlServer(configuration.GetConnectionString("MSSQL"));
+                opt.UseSqlServer(configuration.GetConnectionString("MSSQL_WORK"));
+
+                //opt.UseSqlServer(configuration.GetConnectionString("MSSQL"));
 
                 return new SchoolDbContext(opt.Options);
 

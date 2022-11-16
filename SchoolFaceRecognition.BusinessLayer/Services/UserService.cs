@@ -1,5 +1,8 @@
 ﻿using SchoolFaceRecognition.Core.Abstractions;
 using SchoolFaceRecognition.Core.Abstractions.Services;
+using SchoolFaceRecognition.Core.DTOs.Auth;
+using SchoolFaceRecognition.Core.DTOs.Auths;
+using SchoolFaceRecognition.Core.Infrastructure;
 
 namespace SchoolFaceRecognition.BL.Services
 {
@@ -10,6 +13,11 @@ namespace SchoolFaceRecognition.BL.Services
         public UserService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
+        }
+
+        public Task<Response<AppUserDto>> CreateUserAsync(CreateUserDto createUserDto)
+        {
+            throw new NotImplementedException();
         }
     }
 }
