@@ -32,7 +32,7 @@ namespace SchoolFaceRecognition.DAL.AutoFac
             builder.RegisterType<GroupRepository>().As<IGroupRepository>().InstancePerLifetimeScope();
             builder.RegisterType<SpecialityRepository>().As<ISpecialityRepository>().InstancePerLifetimeScope();
             builder.RegisterType<ContinuityRepository>().As<IContinuityRepository>().InstancePerLifetimeScope();
-            builder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<TokenRepository>().As<ITokenRepository>().InstancePerLifetimeScope();
 
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
 

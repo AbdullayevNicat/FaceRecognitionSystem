@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SchoolFaceRecognition.BL {
+namespace SchoolFaceRecognition.SharedLibrary {
     using System;
     
     
@@ -22,24 +22,24 @@ namespace SchoolFaceRecognition.BL {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Constants {
+    public class ConstantLiterals {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Constants() {
+        internal ConstantLiterals() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SchoolFaceRecognition.BL.Constants", typeof(Constants).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SchoolFaceRecognition.SharedLibrary.ConstantLiterals", typeof(ConstantLiterals).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace SchoolFaceRecognition.BL {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace SchoolFaceRecognition.BL {
         /// <summary>
         ///   Looks up a localized string similar to Məlumat tapılmadı..
         /// </summary>
-        internal static string DataNotFoundMessage {
+        public static string DataNotFoundMessage {
             get {
                 return ResourceManager.GetString("DataNotFoundMessage", resourceCulture);
             }
@@ -72,9 +72,18 @@ namespace SchoolFaceRecognition.BL {
         /// <summary>
         ///   Looks up a localized string similar to Daxili xəta baş verdi..
         /// </summary>
-        internal static string UserInternalErrorMessage {
+        public static string UserInternalErrorMessage {
             get {
                 return ResourceManager.GetString("UserInternalErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to İstifadəçi tapılmadı..
+        /// </summary>
+        public static string UserNotFoundMessage {
+            get {
+                return ResourceManager.GetString("UserNotFoundMessage", resourceCulture);
             }
         }
     }

@@ -1,4 +1,6 @@
 ﻿using SchoolFaceRecognition.Core.Exceptions;
+using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig;
+using SchoolFaceRecognition.SharedLibrary;
 using System.Net;
 using System.Text.Json;
 
@@ -36,27 +38,22 @@ namespace SchoolFaceRecognition.API.Configurations.Middlewares
 
         private async Task HandleExceptionAsync(HttpContext httpConext, Exception exception)
         {
+            if (httpConext.Response.HasStarted)
+                return;
+
             httpConext.Response.ContentType = "application/json";
 
-            ErrorDetail errorDetail = default;
-
-            switch (exception)
+            HttpStatusCode httpStatusCode = exception switch
             {
-                case AppException exp:
-                    httpConext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    errorDetail = new(exp.Message, (int)HttpStatusCode.BadRequest);
-                    break;
-                case DataNotFoundException exp:
-                    httpConext.Response.StatusCode = (int)HttpStatusCode.NotFound;
-                    errorDetail = new(exp.Message, (int)HttpStatusCode.NotFound);
-                    break;
-                default:
-                    httpConext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                    errorDetail = new(exception.Message, (int)HttpStatusCode.NotFound);
-                    break;
-            }
+                DataNotFoundException => HttpStatusCode.NotFound,
+                _ => HttpStatusCode.InternalServerError
+            };
 
-            string errorMessages = JsonSerializer.Serialize(errorDetail);
+            httpConext.Response.StatusCode = (int)httpStatusCode;
+
+            ErrorResponse response = new(httpStatusCode, exception.Message);
+
+            string errorMessages = JsonSerializer.Serialize(response);
 
             await httpConext.Response.WriteAsync(errorMessages);
         }

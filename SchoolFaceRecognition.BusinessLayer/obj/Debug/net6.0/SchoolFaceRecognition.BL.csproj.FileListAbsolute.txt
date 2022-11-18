@@ -21,8 +21,6 @@ C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceReco
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.BusinessLayer\bin\Debug\net6.0\SchoolFaceRecognition.Core.dll
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.BusinessLayer\bin\Debug\net6.0\SchoolFaceRecognition.Core.pdb
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BL.csproj.AssemblyReference.cache
-C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BL.Constants.resources
-C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BL.csproj.GenerateResource.cache
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BL.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BL.AssemblyInfoInputs.cache
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BL.AssemblyInfo.cs
@@ -32,3 +30,5 @@ C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceReco
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\refint\SchoolFaceRecognition.BL.dll
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\SchoolFaceRecognition.BL.pdb
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.BusinessLayer\obj\Debug\net6.0\ref\SchoolFaceRecognition.BL.dll
+C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.BusinessLayer\bin\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.dll
+C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.BusinessLayer\bin\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.pdb

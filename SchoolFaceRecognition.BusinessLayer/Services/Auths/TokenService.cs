@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using SchoolFaceRecognition.Core.Abstractions.Services.Auths;
 using SchoolFaceRecognition.Core.DTOs.Auth;
@@ -9,18 +8,18 @@ using SchoolFaceRecognition.Core.Entities;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace SchoolFaceRecognition.BL.Services.Auths
 {
     public class TokenService : ITokenService
     {
-        private readonly UserManager<AppUser> _userManager;
         private readonly TokenOptionDto _tokenOptionDto;
-        public TokenService(UserManager<AppUser> userManager,
-                            IOptionsSnapshot<TokenOptionDto> _optionsSnapshot)
+        private readonly SecurityKey _securityKey;
+        public TokenService(IOptionsSnapshot<TokenOptionDto> _optionsSnapshot)
         {
-            _userManager = userManager;
             _tokenOptionDto = _optionsSnapshot.Value;
+            _securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenOptionDto.SecurityKey));
         }
 
         public TokenDto CreateToken(AppUser appUser)
@@ -28,9 +27,7 @@ namespace SchoolFaceRecognition.BL.Services.Auths
             DateTime accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOptionDto.AccessTokenExpiration);
             DateTime refreshTokenExpiration = DateTime.Now.AddMinutes(_tokenOptionDto.RefreshTokenExpiration);
 
-            SecurityKey securityKey = SignService.GetSymmetricSecurityKey(_tokenOptionDto.SecurityKey);
-
-            SigningCredentials signingCredentials = new(securityKey, SecurityAlgorithms.HmacSha256);
+            SigningCredentials signingCredentials = new(_securityKey, SecurityAlgorithms.HmacSha256);
 
             JwtSecurityToken jwtSecurityToken = new(
                 issuer: _tokenOptionDto.Issuer,
@@ -54,10 +51,8 @@ namespace SchoolFaceRecognition.BL.Services.Auths
         {
             DateTime accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOptionDto.AccessTokenExpiration);
 
-            SecurityKey securityKey = SignService.GetSymmetricSecurityKey(_tokenOptionDto.SecurityKey);
-
-            SigningCredentials signingCredentials = new(securityKey, SecurityAlgorithms.HmacSha256);
-
+            SigningCredentials signingCredentials = new(_securityKey, SecurityAlgorithms.HmacSha256);
+    
             JwtSecurityToken jwtSecurityToken = new(
                 issuer: _tokenOptionDto.Issuer,
                 claims: GetClaimsByClient(client),

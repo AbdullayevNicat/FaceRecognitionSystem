@@ -3,7 +3,9 @@ using SchoolFaceRecognition.Core.Abstractions;
 using SchoolFaceRecognition.Core.Abstractions.Services;
 using SchoolFaceRecognition.Core.DTOs.Entities;
 using SchoolFaceRecognition.Core.Entities;
-using SchoolFaceRecognition.Core.Infrastructure;
+using SchoolFaceRecognition.Core.Exceptions;
+using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig;
+using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig.Base;
 using System.Net;
 
 namespace SchoolFaceRecognition.BL.Services
@@ -20,14 +22,17 @@ namespace SchoolFaceRecognition.BL.Services
             _mapper = mapper;
         }
 
-        public async Task<Response<IEnumerable<StudentDTO>>> AllAsync(CancellationToken cancellationToken = default)
+        public async Task<Response> AllAsync(CancellationToken cancellationToken = default)
         {
             IEnumerable<Student> students = await _unitOfWork
                             .StudentRepository.GetAllAsync(cancellationToken);
 
+            if (students is null || students.Any() is false)
+                throw new DataNotFoundException();
+
             IEnumerable<StudentDTO> studentDTOs = _mapper.Map<IEnumerable<StudentDTO>>(students);
 
-            return new Response<IEnumerable<StudentDTO>>(studentDTOs, HttpStatusCode.OK);
+            return new SuccessResponse<IEnumerable<StudentDTO>>(studentDTOs);
         }
     }
 }

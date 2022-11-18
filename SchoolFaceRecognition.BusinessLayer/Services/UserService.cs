@@ -2,7 +2,7 @@
 using SchoolFaceRecognition.Core.Abstractions.Services;
 using SchoolFaceRecognition.Core.DTOs.Auth;
 using SchoolFaceRecognition.Core.DTOs.Auths;
-using SchoolFaceRecognition.Core.Infrastructure;
+using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig.Base;
 
 namespace SchoolFaceRecognition.BL.Services
 {
@@ -15,7 +15,7 @@ namespace SchoolFaceRecognition.BL.Services
             _unitOfWork = unitOfWork;
         }
 
-        public Task<Response<AppUserDto>> CreateUserAsync(CreateUserDto createUserDto)
+        public Task<Response> CreateUserAsync(CreateUserDto createUserDto)
         {
             throw new NotImplementedException();
         }
