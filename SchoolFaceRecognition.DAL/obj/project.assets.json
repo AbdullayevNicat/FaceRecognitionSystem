@@ -931,13 +931,24 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.11"
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.11",
+          "SchoolFaceRecognition.SharedLibrary": "1.0.0"
         },
         "compile": {
           "bin/placeholder/SchoolFaceRecognition.Core.dll": {}
         },
         "runtime": {
           "bin/placeholder/SchoolFaceRecognition.Core.dll": {}
+        }
+      },
+      "SchoolFaceRecognition.SharedLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/SchoolFaceRecognition.SharedLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SchoolFaceRecognition.SharedLibrary.dll": {}
         }
       }
     }
@@ -2322,6 +2333,11 @@
       "type": "project",
       "path": "../SchoolFaceRecognition.Core/SchoolFaceRecognition.Core.csproj",
       "msbuildProject": "../SchoolFaceRecognition.Core/SchoolFaceRecognition.Core.csproj"
+    },
+    "SchoolFaceRecognition.SharedLibrary/1.0.0": {
+      "type": "project",
+      "path": "../SchoolFaceRecognition.SharedLibrary/SchoolFaceRecognition.SharedLibrary.csproj",
+      "msbuildProject": "../SchoolFaceRecognition.SharedLibrary/SchoolFaceRecognition.SharedLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {

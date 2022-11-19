@@ -361,6 +361,16 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "SchoolFaceRecognition.SharedLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/SchoolFaceRecognition.SharedLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SchoolFaceRecognition.SharedLibrary.dll": {}
+        }
       }
     }
   },
@@ -811,11 +821,17 @@
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "SchoolFaceRecognition.SharedLibrary/1.0.0": {
+      "type": "project",
+      "path": "../SchoolFaceRecognition.SharedLibrary/SchoolFaceRecognition.SharedLibrary.csproj",
+      "msbuildProject": "../SchoolFaceRecognition.SharedLibrary/SchoolFaceRecognition.SharedLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.11"
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.11",
+      "SchoolFaceRecognition.SharedLibrary >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -848,7 +864,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Nicat\\Desktop\\Programming\\.NET\\ASP.NET\\SchoolFaceRecognition\\SchoolFaceRecognition\\SchoolFaceRecognition.SharedLibrary\\SchoolFaceRecognition.SharedLibrary.csproj": {
+              "projectPath": "C:\\Users\\Nicat\\Desktop\\Programming\\.NET\\ASP.NET\\SchoolFaceRecognition\\SchoolFaceRecognition\\SchoolFaceRecognition.SharedLibrary\\SchoolFaceRecognition.SharedLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

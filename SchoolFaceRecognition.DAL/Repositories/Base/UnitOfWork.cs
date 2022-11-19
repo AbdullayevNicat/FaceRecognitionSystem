@@ -19,15 +19,15 @@ namespace SchoolFaceRecognition.DAL.Repositories.Base
                           IGroupRepository groupRepository,
                           ISpecialityRepository specialityRepository,
                           IContinuityRepository continuityRepository,
-                          IUserRepository userRepository)
+                          ITokenRepository tokenRepository)
         {
             _schoolDbContext = schoolDbContext;
+            _httpContext = httpContextAccessor.HttpContext;
             StudentRepository = studentRepository;
             GroupRepository = groupRepository;
             SpecialityRepository = specialityRepository;
             ContinuityRepository = continuityRepository;
-            UserRepository = userRepository;
-            _httpContext = httpContextAccessor.HttpContext;
+            TokenRepository= tokenRepository;
         }
 
         public IStudentRepository StudentRepository { get; private set; }
@@ -37,7 +37,7 @@ namespace SchoolFaceRecognition.DAL.Repositories.Base
         public ISpecialityRepository SpecialityRepository { get; private set; }
 
         public IContinuityRepository ContinuityRepository { get; private set; }
-        public IUserRepository UserRepository { get; private set; }
+        public ITokenRepository TokenRepository { get; private set; }
 
         public async Task CommitAsync(CancellationToken cancellationToken = default)
         {
@@ -73,7 +73,7 @@ namespace SchoolFaceRecognition.DAL.Repositories.Base
 
             foreach (EntityEntry entityEntry in _schoolDbContext.ChangeTracker.Entries())
             {
-                if (entityEntry is IEntity entity)
+                if (entityEntry.Entity is IEntity entity)
                 {
                     switch (entityEntry.State)
                     {

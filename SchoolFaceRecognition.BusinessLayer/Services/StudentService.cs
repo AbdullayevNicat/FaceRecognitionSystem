@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
-using Microsoft.Extensions.Logging;
 using SchoolFaceRecognition.Core.Abstractions;
 using SchoolFaceRecognition.Core.Abstractions.Services;
-using SchoolFaceRecognition.Core.DTOs;
-using SchoolFaceRecognition.Core.DTOs.Base;
+using SchoolFaceRecognition.Core.DTOs.Entities;
 using SchoolFaceRecognition.Core.Entities;
+using SchoolFaceRecognition.Core.Exceptions;
+using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig;
+using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig.Base;
 using System.Net;
 
 namespace SchoolFaceRecognition.BL.Services
@@ -12,38 +13,26 @@ namespace SchoolFaceRecognition.BL.Services
     public class StudentService : IStudentService
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ILogger<StudentService> _logger;
         private readonly IMapper _mapper;
 
         public StudentService(IUnitOfWork unitOfWork,
-                              ILogger<StudentService> logger,
                               IMapper mapper)
         {
             _unitOfWork = unitOfWork;
-            _logger = logger;
             _mapper = mapper;
         }
 
-        public async Task<Response<IEnumerable<StudentDTO>>> AllAsync(CancellationToken cancellationToken = default)
+        public async Task<Response> AllAsync(CancellationToken cancellationToken = default)
         {
-            try
-            {
-                IEnumerable<Student> students = await _unitOfWork
+            IEnumerable<Student> students = await _unitOfWork
                             .StudentRepository.GetAllAsync(cancellationToken);
 
-                IEnumerable<StudentDTO> studentDTOs = _mapper.Map<IEnumerable<StudentDTO>>(students);
+            if (students is null || students.Any() is false)
+                throw new DataNotFoundException();
 
-                if (students.Count() == 0)
-                    return new Response<IEnumerable<StudentDTO>>(studentDTOs, HttpStatusCode.NotFound);
+            IEnumerable<StudentDTO> studentDTOs = _mapper.Map<IEnumerable<StudentDTO>>(students);
 
-                return new Response<IEnumerable<StudentDTO>>(studentDTOs, HttpStatusCode.OK);
-            }
-            catch (Exception exp)
-            {
-                _logger.LogError(exp, exp.Message);
-                return new Response<IEnumerable<StudentDTO>>(HttpStatusCode.InternalServerError,
-                                                        Constants.UserInternalErrorMessage);
-            }
+            return new SuccessResponse<IEnumerable<StudentDTO>>(studentDTOs);
         }
     }
 }
