@@ -18,7 +18,11 @@ namespace SchoolFaceRecognition.DAL.AutoFac
 
                 DbContextOptionsBuilder<SchoolDbContext> opt = new();
 
-                opt.UseOracle(configuration.GetConnectionString("Oracle"));
+                //opt.UseOracle(configuration.GetConnectionString("ORACLE"));
+
+                opt.UseSqlServer(configuration.GetConnectionString("MSSQL_WORK"));
+
+                //opt.UseSqlServer(configuration.GetConnectionString("MSSQL"));
 
                 return new SchoolDbContext(opt.Options);
 
@@ -28,7 +32,7 @@ namespace SchoolFaceRecognition.DAL.AutoFac
             builder.RegisterType<GroupRepository>().As<IGroupRepository>().InstancePerLifetimeScope();
             builder.RegisterType<SpecialityRepository>().As<ISpecialityRepository>().InstancePerLifetimeScope();
             builder.RegisterType<ContinuityRepository>().As<IContinuityRepository>().InstancePerLifetimeScope();
-            builder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<TokenRepository>().As<ITokenRepository>().InstancePerLifetimeScope();
 
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
 

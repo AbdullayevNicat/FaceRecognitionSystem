@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "SchoolFaceRecognition.SharedLibrary/1.0.0": {
+        "runtime": {
+          "SchoolFaceRecognition.SharedLibrary.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SchoolFaceRecognition.SharedLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

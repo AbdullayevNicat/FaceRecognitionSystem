@@ -22,3 +22,6 @@ C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceReco
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.Core\bin\Debug\net6.0\SchoolFaceRecognition.Core.dll
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.Core\bin\Debug\net6.0\SchoolFaceRecognition.Core.pdb
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.Core\obj\Debug\net6.0\refint\SchoolFaceRecognition.Core.dll
+C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.Core\bin\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.dll
+C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.Core\bin\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.pdb
+C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.Core\obj\Debug\net6.0\SchoolFaceRecognition.Core.csproj.CopyComplete

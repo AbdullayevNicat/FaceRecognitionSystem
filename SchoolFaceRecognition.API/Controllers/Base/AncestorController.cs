@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SchoolFaceRecognition.Core.DTOs.Base;
+using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig.Base;
+using System.Net;
 
 namespace SchoolFaceRecognition.API.Controllers.Base
 {
@@ -7,9 +8,18 @@ namespace SchoolFaceRecognition.API.Controllers.Base
     [Route("api/[controller]/[action]")]
     public class AncestorController : ControllerBase
     {
-        protected async Task<IActionResult> ResultAsync<T>(Task<Response<T>> response) 
+        protected async Task<IActionResult> ResultAsync(Task<Response> response)
         {
-            return new ObjectResult(await response);
+            Response result = await response;
+
+            return result.StatusCode switch
+            {
+                HttpStatusCode.OK => Ok(result),
+                HttpStatusCode.NotFound => NotFound(result),
+                HttpStatusCode.BadRequest => BadRequest(result),
+                HttpStatusCode.InternalServerError => StatusCode((int)HttpStatusCode.InternalServerError, result),
+                _ => StatusCode((int)HttpStatusCode.NotFound, result),
+            };
         }
     }
 }
