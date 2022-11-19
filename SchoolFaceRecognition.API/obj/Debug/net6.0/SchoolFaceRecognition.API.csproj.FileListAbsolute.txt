@@ -164,3 +164,6 @@ C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceReco
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.API\bin\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.dll
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.API\bin\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.pdb
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\bin\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.dll
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\bin\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.pdb
