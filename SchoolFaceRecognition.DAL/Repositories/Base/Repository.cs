@@ -25,11 +25,6 @@ namespace SchoolFaceRecognition.DAL.Repositories.Base
             await _schoolDbContext.AddAsync(entity, cancellationToken);
         }
 
-        public IQueryable<T> AsQueryable()
-        {
-            return _schoolDbContext.Set<T>().AsQueryable();
-        }
-
         public virtual void DeleteArrange(CancellationToken cancellationToken = default, params T[] entities)
         {
             _schoolDbContext.RemoveRange(entities, cancellationToken);
@@ -58,6 +53,11 @@ namespace SchoolFaceRecognition.DAL.Repositories.Base
         public virtual void Update(T entity)
         {
             _schoolDbContext.Update(entity);
+        }
+
+        public async Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> expression, CancellationToken cancellationToken = default)
+        {
+             return await _schoolDbContext.Set<T>().FirstOrDefaultAsync(expression, cancellationToken);
         }
     }
 }

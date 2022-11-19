@@ -1,10 +1,9 @@
-﻿using SchoolFaceRecognition.Core.DTOs;
-using SchoolFaceRecognition.Core.DTOs.Base;
+﻿using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig.Base;
 
 namespace SchoolFaceRecognition.Core.Abstractions.Services
 {
     public interface IStudentService
     {
-        Task<Response<IEnumerable<StudentDTO>>> AllAsync(CancellationToken cancellationToken = default);
+        Task<Response> AllAsync(CancellationToken cancellationToken = default);
     }
 }

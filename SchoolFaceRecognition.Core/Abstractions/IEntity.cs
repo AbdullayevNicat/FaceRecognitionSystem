@@ -2,7 +2,7 @@
 {
     public interface IEntity
     {
-        public int Id { get; set; }
+        public int Id { get; init; }
         public bool IsDeleted { get; set; }
         public string CreaterUser { get; set; }
         public DateTime CreationDate { get; set; }

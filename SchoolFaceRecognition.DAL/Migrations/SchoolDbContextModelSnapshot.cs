@@ -163,6 +163,11 @@ namespace SchoolFaceRecognition.DAL.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("City")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("City");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -349,6 +354,73 @@ namespace SchoolFaceRecognition.DAL.Migrations
                     b.HasIndex("SpecialityId");
 
                     b.ToTable("GROUPS", "SCHOOL");
+                });
+
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.RefreshToken", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("USER_ID");
+
+                    b.Property<string>("CreaterUser")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("CREATER_USER");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CREATION_DATE");
+
+                    b.Property<DateTime>("Expiration")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("EXPIRATION_DATE");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_DELETED");
+
+                    b.Property<string>("RemoverUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("REMOVER_USER");
+
+                    b.Property<DateTime?>("RemovingDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("REMOVING_DATE");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("REFRESH_TOKEN");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UPDATE_DATE");
+
+                    b.Property<string>("UpdaterUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("UPDATER_USER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("Token", "AppUserId")
+                        .IsUnique()
+                        .HasDatabaseName("UK_REFRESH_TOKEN_USER_ID_&&_TOKEN");
+
+                    b.ToTable("REFRESH_TOKENS", "AUTH");
                 });
 
             modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Speciality", b =>
@@ -553,13 +625,25 @@ namespace SchoolFaceRecognition.DAL.Migrations
 
             modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Group", b =>
                 {
-                    b.HasOne("SchoolFaceRecognition.Core.Entities.Speciality", "Specialty")
+                    b.HasOne("SchoolFaceRecognition.Core.Entities.Speciality", "Speciality")
                         .WithMany("Groups")
                         .HasForeignKey("SpecialityId")
                         .IsRequired()
                         .HasConstraintName("FK_GROUPS_SPECIALITY_ID");
 
-                    b.Navigation("Specialty");
+                    b.Navigation("Speciality");
+                });
+
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.RefreshToken", b =>
+                {
+                    b.HasOne("SchoolFaceRecognition.Core.Entities.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_REFRESH_TOKEN_USER_ID");
+
+                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Student", b =>
