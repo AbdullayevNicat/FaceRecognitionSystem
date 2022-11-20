@@ -101,7 +101,7 @@ namespace SchoolFaceRecognition.BL.Services.Auths
             return new SuccessResponse<TokenDto>(tokenDto);
         }
 
-        public Response CreateTokenByToken(ClientLoginDto clientLoginDto, CancellationToken cancellationToken = default)
+        public Response CreateTokenByClient(ClientLoginDto clientLoginDto, CancellationToken cancellationToken = default)
         {
             Client client = _clients.FirstOrDefault(x => x.Id == clientLoginDto.Id && x.Secret == clientLoginDto.Secret);
 

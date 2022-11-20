@@ -123,6 +123,9 @@
   <data name="UserInternalErrorMessage" xml:space="preserve">
     <value>Daxili xəta baş verdi.</value>
   </data>
+  <data name="UserIsNotAuthorizedMessage" xml:space="preserve">
+    <value>İcazəniz yoxdur.</value>
+  </data>
   <data name="UserNotFoundMessage" xml:space="preserve">
     <value>İstifadəçi tapılmadı.</value>
   </data>

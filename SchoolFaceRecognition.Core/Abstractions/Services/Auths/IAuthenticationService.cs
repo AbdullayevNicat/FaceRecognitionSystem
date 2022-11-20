@@ -8,6 +8,6 @@ namespace SchoolFaceRecognition.Core.Abstractions.Services.Auths
         Task<Response> CreateTokenAsync(LoginDto loginDto, CancellationToken cancellationToken = default);
         Task<Response> CreateTokenByRefreshTokenAsync(RefreshTokenDto refreshTokenDto, CancellationToken cancellationToken = default);
         Task<Response> RevokeRefreshTokenAsync(RefreshTokenDto refreshTokenDto, CancellationToken cancellationToken = default);
-        Response CreateTokenByToken(ClientLoginDto clientLoginDto, CancellationToken cancellationToken = default);
+        Response CreateTokenByClient(ClientLoginDto clientLoginDto, CancellationToken cancellationToken = default);
     }
 }
