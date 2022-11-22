@@ -69,7 +69,7 @@ namespace SchoolFaceRecognition.DAL.Repositories.Base
             _schoolDbContext.ChangeTracker
                 .DetectChanges();
 
-            string userId = _httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userId = _httpContext.User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "Admin";
 
             foreach (EntityEntry entityEntry in _schoolDbContext.ChangeTracker.Entries())
             {

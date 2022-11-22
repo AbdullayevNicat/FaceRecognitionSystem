@@ -1,5 +1,6 @@
 ﻿using SchoolFaceRecognition.Core.Exceptions;
 using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig;
+using SchoolFaceRecognition.SharedLibrary;
 using System.Net;
 using System.Text.Json;
 
@@ -21,6 +22,11 @@ namespace SchoolFaceRecognition.API.Configurations.Middlewares
             try
             {
                 await _next(httpContext);
+
+                if (httpContext.Response.StatusCode == (int)HttpStatusCode.Unauthorized && httpContext.Response.HasStarted is false)
+                {
+                    await WriteToResponseAsync(httpContext, HttpStatusCode.Unauthorized, ConstantLiterals.UserIsNotAuthorizedMessage);
+                }
             }
             catch (Exception exp)
             {
@@ -35,12 +41,10 @@ namespace SchoolFaceRecognition.API.Configurations.Middlewares
             }
         }
 
-        private async Task HandleExceptionAsync(HttpContext httpConext, Exception exception)
+        private async Task HandleExceptionAsync(HttpContext httpContext, Exception exception)
         {
-            if (httpConext.Response.HasStarted)
+            if (httpContext.Response.HasStarted)
                 return;
-
-            httpConext.Response.ContentType = "application/json";
 
             HttpStatusCode httpStatusCode = exception switch
             {
@@ -48,13 +52,19 @@ namespace SchoolFaceRecognition.API.Configurations.Middlewares
                 _ => HttpStatusCode.InternalServerError
             };
 
-            httpConext.Response.StatusCode = (int)httpStatusCode;
+            await WriteToResponseAsync(httpContext, httpStatusCode, exception.Message);
+        }
 
-            ErrorResponse response = new(httpStatusCode, exception.Message);
+        private async Task WriteToResponseAsync(HttpContext httpContext, HttpStatusCode httpStatusCode, string error)
+        {
+            ErrorResponse response = new(httpStatusCode, error);
+
+            httpContext.Response.ContentType = "application/json";
+            httpContext.Response.StatusCode = (int)httpStatusCode;
 
             string errorMessages = JsonSerializer.Serialize(response);
 
-            await httpConext.Response.WriteAsync(errorMessages);
+            await httpContext.Response.WriteAsync(errorMessages);
         }
     }
 }

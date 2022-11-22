@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SchoolFaceRecognition.API.Controllers.Base;
 using SchoolFaceRecognition.Core.Abstractions.Services;
 using SchoolFaceRecognition.Core.DTOs.Auth;
@@ -15,13 +16,14 @@ namespace SchoolFaceRecognition.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateUser(CreateUserDto createUserDto)
+        [AllowAnonymous]
+        public async Task<IActionResult> Create(CreateUserDto createUserDto)
         {
             return await ResultAsync(_userService.CreateUserAsync(createUserDto));
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUser()
+        public async Task<IActionResult> Get()
         {
             return await ResultAsync(_userService.GetUserAsync());
         }

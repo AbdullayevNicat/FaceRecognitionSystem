@@ -7,14 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Configurations\Filters\**" />
+    <Content Remove="Configurations\Filters\**" />
+    <EmbeddedResource Remove="Configurations\Filters\**" />
+    <None Remove="Configurations\Filters\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac" Version="6.4.0" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.11">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.11" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
@@ -22,10 +31,6 @@
     <ProjectReference Include="..\SchoolFaceRecognition.BusinessLayer\SchoolFaceRecognition.BL.csproj" />
     <ProjectReference Include="..\SchoolFaceRecognition.Core\SchoolFaceRecognition.Core.csproj" />
     <ProjectReference Include="..\SchoolFaceRecognition.DAL\SchoolFaceRecognition.DAL.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Configurations\Filters\" />
   </ItemGroup>
 
 </Project>

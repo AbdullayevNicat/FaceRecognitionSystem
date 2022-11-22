@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using SchoolFaceRecognition.Core.DTOs.Auths;
 using SchoolFaceRecognition.Core.DTOs.Entities;
 using SchoolFaceRecognition.Core.Entities;
 
@@ -11,6 +12,7 @@ namespace SchoolFaceRecognition.BL.AutoMappers
             CreateMap<Student, StudentDTO>();
             CreateMap<Group, GroupDTO>();
             CreateMap<Speciality, SpecialityDTO>();
+            CreateMap<AppUser, AppUserDto>();
         }
     }
 }

@@ -44,7 +44,7 @@ namespace SchoolFaceRecognition.BL.Services
 
             if (identityResult.Succeeded)
             {
-                return new SuccessResponse<object>();
+                return new SuccessResponse<CreateUserDto>(createUserDto);
             }
             else
             {
