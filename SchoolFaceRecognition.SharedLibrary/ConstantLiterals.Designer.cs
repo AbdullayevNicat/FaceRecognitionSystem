@@ -79,6 +79,15 @@ namespace SchoolFaceRecognition.SharedLibrary {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to İcazəniz yoxdur..
+        /// </summary>
+        public static string UserIsNotAuthorizedMessage {
+            get {
+                return ResourceManager.GetString("UserIsNotAuthorizedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to İstifadəçi tapılmadı..
         /// </summary>
         public static string UserNotFoundMessage {

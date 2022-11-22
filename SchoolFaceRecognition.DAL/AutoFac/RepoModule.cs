@@ -20,21 +20,21 @@ namespace SchoolFaceRecognition.DAL.AutoFac
 
                 //opt.UseOracle(configuration.GetConnectionString("ORACLE"));
 
-                opt.UseSqlServer(configuration.GetConnectionString("MSSQL_WORK"));
+                //opt.UseSqlServer(configuration.GetConnectionString("MSSQL_WORK"));
 
-                //opt.UseSqlServer(configuration.GetConnectionString("MSSQL"));
+                opt.UseSqlServer(configuration.GetConnectionString("MSSQL"));
 
                 return new SchoolDbContext(opt.Options);
 
-            }).InstancePerLifetimeScope();
+            }).InstancePerRequest();
 
-            builder.RegisterType<StudentRepository>().As<IStudentRepository>().InstancePerLifetimeScope();
-            builder.RegisterType<GroupRepository>().As<IGroupRepository>().InstancePerLifetimeScope();
-            builder.RegisterType<SpecialityRepository>().As<ISpecialityRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<StudentRepository>().As<IStudentRepository>().InstancePerRequest();
+            builder.RegisterType<GroupRepository>().As<IGroupRepository>().InstancePerRequest();
+            builder.RegisterType<SpecialityRepository>().As<ISpecialityRepository>().InstancePerRequest();
             builder.RegisterType<ContinuityRepository>().As<IContinuityRepository>().InstancePerLifetimeScope();
-            builder.RegisterType<TokenRepository>().As<ITokenRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<TokenRepository>().As<ITokenRepository>().InstancePerRequest();
 
-            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
 
             base.Load(builder);
         }
