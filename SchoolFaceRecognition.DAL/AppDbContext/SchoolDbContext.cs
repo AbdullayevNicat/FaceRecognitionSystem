@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SchoolFaceRecognition.Core.Entities;
-using SchoolFaceRecognition.Core.Entities.Base;
-using SchoolFaceRecognition.DAL.Configurations;
 using System.Reflection;
 
 namespace SchoolFaceRecognition.DAL.AppDbContext

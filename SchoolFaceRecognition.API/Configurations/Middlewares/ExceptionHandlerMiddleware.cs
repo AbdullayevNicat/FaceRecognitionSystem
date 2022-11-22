@@ -1,6 +1,5 @@
 ﻿using SchoolFaceRecognition.Core.Exceptions;
 using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig;
-using SchoolFaceRecognition.SharedLibrary;
 using System.Net;
 using System.Text.Json;
 
