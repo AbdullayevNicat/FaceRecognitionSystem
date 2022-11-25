@@ -1,8 +1,7 @@
-﻿using SchoolFaceRecognition.Core.Exceptions;
-using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig;
+﻿using SchoolFaceRecognition.API.Configurations.Helpers;
+using SchoolFaceRecognition.Core.Exceptions;
 using SchoolFaceRecognition.SharedLibrary;
 using System.Net;
-using System.Text.Json;
 
 namespace SchoolFaceRecognition.API.Configurations.Middlewares
 {
@@ -22,11 +21,6 @@ namespace SchoolFaceRecognition.API.Configurations.Middlewares
             try
             {
                 await _next(httpContext);
-
-                if (httpContext.Response.StatusCode == (int)HttpStatusCode.Unauthorized && httpContext.Response.HasStarted is false)
-                {
-                    await WriteToResponseAsync(httpContext, HttpStatusCode.Unauthorized, ConstantLiterals.UserIsNotAuthorizedMessage);
-                }
             }
             catch (Exception exp)
             {
@@ -52,19 +46,14 @@ namespace SchoolFaceRecognition.API.Configurations.Middlewares
                 _ => HttpStatusCode.InternalServerError
             };
 
-            await WriteToResponseAsync(httpContext, httpStatusCode, exception.Message);
-        }
-
-        private async Task WriteToResponseAsync(HttpContext httpContext, HttpStatusCode httpStatusCode, string error)
-        {
-            ErrorResponse response = new(httpStatusCode, error);
-
-            httpContext.Response.ContentType = "application/json";
-            httpContext.Response.StatusCode = (int)httpStatusCode;
-
-            string errorMessages = JsonSerializer.Serialize(response);
-
-            await httpContext.Response.WriteAsync(errorMessages);
+            if(httpStatusCode >= HttpStatusCode.InternalServerError)
+            {
+                await ResponseWriter.WriteToResponseAsync(httpContext, httpStatusCode, ConstantLiterals.UserInternalErrorMessage);
+            }
+            else
+            {
+                await ResponseWriter.WriteToResponseAsync(httpContext, httpStatusCode, exception.Message);
+            }
         }
     }
 }

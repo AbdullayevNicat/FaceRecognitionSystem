@@ -1,4 +1,4 @@
 ﻿namespace SchoolFaceRecognition.Core.DTOs.Entities
 {
-    public record StudentDTO(string Name, string Surname, string FatherName, string Address, GroupDTO Group);
+    public record StudentDto(string Name, string Surname, string FatherName, string? Address, int? GroupId);
 }

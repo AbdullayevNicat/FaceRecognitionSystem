@@ -12,12 +12,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ConstantLiterals.resx</DependentUpon>
     </Compile>
+    <Compile Update="LocalizedIdentityErrorMessages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LocalizedIdentityErrorMessages.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="ConstantLiterals.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ConstantLiterals.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LocalizedIdentityErrorMessages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalizedIdentityErrorMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

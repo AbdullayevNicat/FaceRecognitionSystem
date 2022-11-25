@@ -16,28 +16,25 @@ namespace SchoolFaceRecognition.API.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public async Task<IActionResult> CreateToken(LoginDto login)
         {
             return await ResultAsync(_authenticationService.CreateTokenAsync(login));
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public IActionResult CreateTokenByClient(ClientLoginDto clientLogin)
         {
             return Result(_authenticationService.CreateTokenByClient(clientLogin));
         }
 
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Roles = "Director, Teacher")]
         public async Task<IActionResult> RevokeRefreshToken(RefreshTokenDto refreshToken)
         {
             return await ResultAsync(_authenticationService.RevokeRefreshTokenAsync(refreshToken));
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public async Task<IActionResult> CreateTokenByRefreshToken(RefreshTokenDto refreshToken)
         {
             return await ResultAsync(_authenticationService.CreateTokenByRefreshTokenAsync(refreshToken));

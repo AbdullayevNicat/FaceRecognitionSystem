@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig.Base;
 using System.Net;
 
@@ -7,7 +6,6 @@ namespace SchoolFaceRecognition.API.Controllers.Base
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
-    [Authorize]
     public class AncestorController : ControllerBase
     {
         protected async Task<IActionResult> ResultAsync(Task<Response> response)

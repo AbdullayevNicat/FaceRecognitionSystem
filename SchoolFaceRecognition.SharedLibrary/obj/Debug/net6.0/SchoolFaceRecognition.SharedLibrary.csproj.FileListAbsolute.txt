@@ -26,3 +26,4 @@ C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFace
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\refint\SchoolFaceRecognition.SharedLibrary.dll
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.pdb
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\ref\SchoolFaceRecognition.SharedLibrary.dll
+C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.LocalizedIdentityErrorMessages.resources

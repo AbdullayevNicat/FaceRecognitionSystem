@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "6VhD93Xy7PIgWzso4BrsRIXHTbukkJs9wPSRS/RVZQpXxSKyy0qW9A8F2QeMq1rYSWdmLuOZme5rkmV7H/cRuw==",
+  "dgSpecHash": "1hLc5okb4on6KMgyNg+A699PYppdar/udEgknPPiZIbtXVoHxuxLW67AtJKonsp17lfK72rwBTX/841eT8/m/A==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\SchoolFaceRecognition\\FaceRecognitionSystem\\SchoolFaceRecognition.BusinessLayer\\SchoolFaceRecognition.BL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\autofac\\6.4.0\\autofac.6.4.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\fluentvalidation\\11.3.0\\fluentvalidation.11.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.11\\microsoft.aspnetcore.cryptography.internal.6.0.11.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.11\\microsoft.aspnetcore.cryptography.keyderivation.6.0.11.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",

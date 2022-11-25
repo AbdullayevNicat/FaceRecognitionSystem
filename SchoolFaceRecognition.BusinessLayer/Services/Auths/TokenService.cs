@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using SchoolFaceRecognition.Core.Abstractions.Services.Auths;
 using SchoolFaceRecognition.Core.DTOs.Auth;
@@ -16,10 +17,14 @@ namespace SchoolFaceRecognition.BL.Services.Auths
     {
         private readonly TokenOptionDto _tokenOptionDto;
         private readonly SecurityKey _securityKey;
-        public TokenService(IOptionsSnapshot<TokenOptionDto> _optionsSnapshot)
+        private readonly UserManager<AppUser> _userManager;
+
+        public TokenService(IOptionsSnapshot<TokenOptionDto> _optionsSnapshot,
+                            UserManager<AppUser> userManager)
         {
             _tokenOptionDto = _optionsSnapshot.Value;
             _securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenOptionDto.SecurityKey));
+            _userManager = userManager;
         }
 
         public TokenDto CreateToken(AppUser appUser)
@@ -81,12 +86,20 @@ namespace SchoolFaceRecognition.BL.Services.Auths
 
         private IEnumerable<Claim> GetClaims(AppUser appUser, IEnumerable<string> audiences)
         {
+           IList<string> roles = _userManager.GetRolesAsync(appUser).GetAwaiter().GetResult();
+
             List<Claim> claims = new()
             {
                 new Claim(ClaimTypes.NameIdentifier, appUser.Id),
                 new Claim(ClaimTypes.Name, appUser.UserName),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+               
             };
+
+            if (roles is not null && roles.Any())
+            {
+                claims.Add(new Claim(ClaimTypes.Role, roles.First()));
+            }
 
             claims.AddRange(audiences.Select(x => new Claim(JwtRegisteredClaimNames.Aud, x)));
 

@@ -120,13 +120,46 @@
   <data name="DataNotFoundMessage" xml:space="preserve">
     <value>Məlumat tapılmadı.</value>
   </data>
+  <data name="FatherNameCanNotBeEmpty" xml:space="preserve">
+    <value>Ata adı boş ola bilməz.</value>
+  </data>
+  <data name="GroupCanNotBeEmpty" xml:space="preserve">
+    <value>Qrup təyin edilməlidir.</value>
+  </data>
+  <data name="InputValuesIsEmpty" xml:space="preserve">
+    <value>Məlumat daxil edilməyib.</value>
+  </data>
+  <data name="NameCanNotBeEmpty" xml:space="preserve">
+    <value>Ad boş ola bilməz.</value>
+  </data>
+  <data name="SurnameCanNotBeEmpty" xml:space="preserve">
+    <value>Soyad boş ola bilməz.</value>
+  </data>
+  <data name="UserCityCanNotBeEmpty" xml:space="preserve">
+    <value>Şəhər boş ola bilməz.</value>
+  </data>
+  <data name="UserEmailCanNotBeEmpty" xml:space="preserve">
+    <value>Email boş ola bilməz.</value>
+  </data>
+  <data name="UserEmailIsNotCorrect" xml:space="preserve">
+    <value>Email düzgün formatda deyil.</value>
+  </data>
+  <data name="UserForbiddenMessage" xml:space="preserve">
+    <value>Sizin bu əməliyyatı etmək üçün icazəniz yoxdur</value>
+  </data>
   <data name="UserInternalErrorMessage" xml:space="preserve">
     <value>Daxili xəta baş verdi.</value>
   </data>
   <data name="UserIsNotAuthorizedMessage" xml:space="preserve">
     <value>İcazəniz yoxdur.</value>
   </data>
+  <data name="UserNameCanNotBeEmpty" xml:space="preserve">
+    <value>İstifadəçi adı boş ola bilməz.</value>
+  </data>
   <data name="UserNotFoundMessage" xml:space="preserve">
     <value>İstifadəçi tapılmadı.</value>
+  </data>
+  <data name="UserPasswordCanNotBeEmpty" xml:space="preserve">
+    <value>Parol boş ola bilməz.</value>
   </data>
 </root>

@@ -1,7 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using SchoolFaceRecognition.API.Configurations.Helpers;
+using SchoolFaceRecognition.BL.AutoMappers;
 using SchoolFaceRecognition.Core.DTOs.Auths;
+using SchoolFaceRecognition.Core.DTOs.Config;
+using SchoolFaceRecognition.Core.Entities;
+using SchoolFaceRecognition.DAL.AppDbContext;
 using System.Text;
 
 namespace SchoolFaceRecognition.API.Configurations.Extentions
@@ -72,6 +78,36 @@ namespace SchoolFaceRecognition.API.Configurations.Extentions
                 };
             });
 
+
+            return serviceCollection;
+        }
+
+        public static IServiceCollection AddMappers(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddAutoMapper(opt => { 
+             
+                 opt.AddProfile<DtoMappings>();
+            });
+
+            return serviceCollection;
+        }
+
+        public static IServiceCollection AddOptionPatterns(this IServiceCollection serviceCollection, IConfiguration configuration)
+        {
+            serviceCollection.Configure<TokenOptionDto>(configuration.GetSection("TokenOption"));
+            serviceCollection.Configure<List<Client>>(configuration.GetSection("Clients"));
+
+            return serviceCollection;
+        }
+
+        public static IServiceCollection AddIdentityConfigurations(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddIdentity<AppUser, IdentityRole>(opt =>
+            {
+                opt.User.RequireUniqueEmail = true;
+            }).AddErrorDescriber<LocalizedIdentityErrorDescriber>()
+                .AddEntityFrameworkStores<SchoolDbContext>()
+                    .AddDefaultTokenProviders();
 
             return serviceCollection;
         }

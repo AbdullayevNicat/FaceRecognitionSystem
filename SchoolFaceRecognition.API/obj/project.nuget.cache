@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2ahipedy4p2AjtLLyMjw2UihAyT3wqJrUI5yzoBRqKvWXYvvLr9XKpxTpXSJ6HIBwFEGTYPinav0fx1MeEyy5g==",
+  "dgSpecHash": "d7sxpxxewnYidz36xtDGUGmde8D3il5XUia1KOh7iHMetfG0q31+3XR82K5iI05DZbD/MpxbRhYZizZcFYSKJg==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\SchoolFaceRecognition\\FaceRecognitionSystem\\SchoolFaceRecognition.API\\SchoolFaceRecognition.API.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\user\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\fluentvalidation\\11.3.0\\fluentvalidation.11.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.11\\microsoft.aspnetcore.authentication.jwtbearer.6.0.11.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.11\\microsoft.aspnetcore.cryptography.internal.6.0.11.nupkg.sha512",

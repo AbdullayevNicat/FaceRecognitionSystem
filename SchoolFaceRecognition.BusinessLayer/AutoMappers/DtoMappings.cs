@@ -9,10 +9,11 @@ namespace SchoolFaceRecognition.BL.AutoMappers
     {
         public DtoMappings()
         {
-            CreateMap<Student, StudentDTO>();
-            CreateMap<Group, GroupDTO>();
-            CreateMap<Speciality, SpecialityDTO>();
+            CreateMap<Student, StudentDto>().ReverseMap();
+            CreateMap<Group, GroupDto>();
+            CreateMap<Speciality, SpecialityDto>();
             CreateMap<AppUser, AppUserDto>();
+            CreateMap<AppUser, AppUserInfoDto>().ReverseMap();
         }
     }
 }

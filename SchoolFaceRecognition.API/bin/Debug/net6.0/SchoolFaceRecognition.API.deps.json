@@ -12,9 +12,7 @@
           "Autofac": "6.4.0",
           "Autofac.Extensions.DependencyInjection": "8.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.11",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.11",
           "Microsoft.EntityFrameworkCore.Design": "6.0.11",
-          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.11",
           "SchoolFaceRecognition.BL": "1.0.0",
           "SchoolFaceRecognition.Core": "1.0.0",
           "SchoolFaceRecognition.DAL": "1.0.0",
@@ -67,6 +65,14 @@
           "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {
             "assemblyVersion": "12.0.0.0",
             "fileVersion": "12.0.0.0"
+          }
+        }
+      },
+      "FluentValidation/11.3.0": {
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.3.0.0"
           }
         }
       },
@@ -647,6 +653,7 @@
         "dependencies": {
           "AutoMapper": "12.0.0",
           "Autofac": "6.4.0",
+          "FluentValidation": "11.3.0",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.IdentityModel.Tokens": "6.25.0",
           "SchoolFaceRecognition.Core": "1.0.0",
@@ -718,6 +725,13 @@
       "sha512": "sha512-XCJ4E3oKrbRl1qY9Mr+7uyC0xZj1+bqQjmQRWTiTKiVuuXTny+7YFWHi20tPjwkMukLbicN6yGlDy5PZ4wyi1w==",
       "path": "automapper.extensions.microsoft.dependencyinjection/12.0.0",
       "hashPath": "automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512"
+    },
+    "FluentValidation/11.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AlsfUkdIzSMA2v091K0gT1YjEwc7YR5pIA5yq7PnZivhoH3YETMhZbUySzsLbJKhj/E3ei6nEgtqdm00AVHXeg==",
+      "path": "fluentvalidation/11.3.0",
+      "hashPath": "fluentvalidation.11.3.0.nupkg.sha512"
     },
     "Humanizer.Core/2.8.26": {
       "type": "package",
