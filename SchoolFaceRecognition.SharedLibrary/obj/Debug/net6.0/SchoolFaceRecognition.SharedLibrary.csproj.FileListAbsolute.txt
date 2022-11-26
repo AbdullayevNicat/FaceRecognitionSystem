@@ -1,22 +1,9 @@
-C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.SharedLibrary\bin\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.deps.json
-C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.SharedLibrary\bin\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.dll
-C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.SharedLibrary\bin\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.pdb
-C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.csproj.AssemblyReference.cache
-C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.ConstantLiterals.resources
-C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.csproj.GenerateResource.cache
-C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.AssemblyInfoInputs.cache
-C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.AssemblyInfo.cs
-C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.csproj.CoreCompileInputs.cache
-C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.dll
-C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\refint\SchoolFaceRecognition.SharedLibrary.dll
-C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.pdb
-C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\ref\SchoolFaceRecognition.SharedLibrary.dll
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.SharedLibrary\bin\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.deps.json
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.SharedLibrary\bin\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.dll
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.SharedLibrary\bin\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.pdb
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.csproj.AssemblyReference.cache
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.ConstantLiterals.resources
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.LocalizedIdentityErrorMessages.resources
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.csproj.GenerateResource.cache
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.AssemblyInfoInputs.cache
@@ -26,7 +13,3 @@ C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFace
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\refint\SchoolFaceRecognition.SharedLibrary.dll
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.pdb
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\ref\SchoolFaceRecognition.SharedLibrary.dll
-<<<<<<< HEAD
-=======
-C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.SharedLibrary\obj\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.LocalizedIdentityErrorMessages.resources
->>>>>>> 04fff4d18b31429bfc5af0ebc53c7743c97bba4c

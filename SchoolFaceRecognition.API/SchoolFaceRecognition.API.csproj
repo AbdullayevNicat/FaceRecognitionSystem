@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SchoolFaceRecognition.BusinessLayer\SchoolFaceRecognition.BL.csproj" />
+    <ProjectReference Include="..\SchoolFaceRecognition.BL\SchoolFaceRecognition.BL.csproj" />
     <ProjectReference Include="..\SchoolFaceRecognition.Core\SchoolFaceRecognition.Core.csproj" />
     <ProjectReference Include="..\SchoolFaceRecognition.DAL\SchoolFaceRecognition.DAL.csproj" />
   </ItemGroup>
