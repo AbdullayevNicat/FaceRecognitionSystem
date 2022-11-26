@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Configurations\Filters\**" />
+    <Content Remove="Configurations\Filters\**" />
+    <EmbeddedResource Remove="Configurations\Filters\**" />
+    <None Remove="Configurations\Filters\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac" Version="6.4.0" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
@@ -22,10 +29,6 @@
     <ProjectReference Include="..\SchoolFaceRecognition.BusinessLayer\SchoolFaceRecognition.BL.csproj" />
     <ProjectReference Include="..\SchoolFaceRecognition.Core\SchoolFaceRecognition.Core.csproj" />
     <ProjectReference Include="..\SchoolFaceRecognition.DAL\SchoolFaceRecognition.DAL.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Configurations\Filters\" />
   </ItemGroup>
 
 </Project>
