@@ -44,7 +44,7 @@ namespace SchoolFaceRecognition.BL.Services
 
             if (identityResult.Succeeded)
             {
-                return new SuccessResponse<object>();
+                return new SuccessResponse<CreateUserDto>(createUserDto);
             }
             else
             {
@@ -61,9 +61,9 @@ namespace SchoolFaceRecognition.BL.Services
             if (appUser is null)
                 return new ErrorResponse(ConstantLiterals.UserNotFoundMessage);
 
-            AppUserDto appUserDto = _mapper.Map<AppUserDto>(appUser);
+            AppUserInfoDto appUserInfoDto = _mapper.Map<AppUserInfoDto>(appUser);
 
-            return new SuccessResponse<AppUserDto>(appUserDto);
+            return new SuccessResponse<AppUserInfoDto>(appUserInfoDto);
         }
     }
 }

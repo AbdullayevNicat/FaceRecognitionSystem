@@ -1,7 +1,7 @@
-﻿using SchoolFaceRecognition.Core.Exceptions;
-using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig;
+﻿using SchoolFaceRecognition.API.Configurations.Helpers;
+using SchoolFaceRecognition.Core.Exceptions;
+using SchoolFaceRecognition.SharedLibrary;
 using System.Net;
-using System.Text.Json;
 
 namespace SchoolFaceRecognition.API.Configurations.Middlewares
 {
@@ -35,12 +35,10 @@ namespace SchoolFaceRecognition.API.Configurations.Middlewares
             }
         }
 
-        private async Task HandleExceptionAsync(HttpContext httpConext, Exception exception)
+        private async Task HandleExceptionAsync(HttpContext httpContext, Exception exception)
         {
-            if (httpConext.Response.HasStarted)
+            if (httpContext.Response.HasStarted)
                 return;
-
-            httpConext.Response.ContentType = "application/json";
 
             HttpStatusCode httpStatusCode = exception switch
             {
@@ -48,13 +46,14 @@ namespace SchoolFaceRecognition.API.Configurations.Middlewares
                 _ => HttpStatusCode.InternalServerError
             };
 
-            httpConext.Response.StatusCode = (int)httpStatusCode;
-
-            ErrorResponse response = new(httpStatusCode, exception.Message);
-
-            string errorMessages = JsonSerializer.Serialize(response);
-
-            await httpConext.Response.WriteAsync(errorMessages);
+            if(httpStatusCode >= HttpStatusCode.InternalServerError)
+            {
+                await ResponseWriter.WriteToResponseAsync(httpContext, httpStatusCode, ConstantLiterals.UserInternalErrorMessage);
+            }
+            else
+            {
+                await ResponseWriter.WriteToResponseAsync(httpContext, httpStatusCode, exception.Message);
+            }
         }
     }
 }
