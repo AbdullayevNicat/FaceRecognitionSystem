@@ -1,49 +1,52 @@
-using Autofac;
-using Autofac.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using SchoolFaceRecognition.API.Configurations.Extentions;
-using SchoolFaceRecognition.BL.AutoFac;
-using SchoolFaceRecognition.BL.AutoMappers;
-using SchoolFaceRecognition.Core.DTOs.Auths;
-using SchoolFaceRecognition.Core.DTOs.Config;
-using SchoolFaceRecognition.DAL.AutoFac;
+using SchoolFaceRecognition.API.Configurations.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddAutoMapper(opt =>
+builder.Services.AddMappers();
+
+builder.Host.AddAutoFac();
+
+builder.Services.AddOptionPatterns(builder.Configuration);
+
+builder.Services.AddIdentityConfigurations();
+
+builder.Services.AddAuthenticationExtension(builder.Configuration);
+
+builder.Services.AddAuthentication();
+
+builder.Services.AddRouting(opt =>
 {
-    opt.AddProfile<DtoMappings>();
+    opt.LowercaseUrls = true;
+    opt.LowercaseQueryStrings = true;
 });
 
-builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
-    .ConfigureContainer<ContainerBuilder>(opt =>
-    {
-        opt.RegisterModule<RepoModule>();
-        opt.RegisterModule<ServiceModule>();
-    });
+builder.Services.AddControllers(options =>
+    options.Conventions.Add(new RouteTokenTransformerConvention(new SlugifyParameterTransformer())));
 
-builder.Services.Configure<TokenOptionDto>(builder.Configuration.GetSection("TokenOption"));
-builder.Services.Configure<List<Client>>(builder.Configuration.GetSection("Clients"));
-
-builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerExtension();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseAppExceptionHandler();
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-app.UseAppExceptionHandler();
-
 app.UseHttpsRedirection();
 
+app.UseRouting();
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

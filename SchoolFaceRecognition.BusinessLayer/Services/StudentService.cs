@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using SchoolFaceRecognition.BL.Helpers;
+using SchoolFaceRecognition.BL.Validations;
 using SchoolFaceRecognition.Core.Abstractions;
 using SchoolFaceRecognition.Core.Abstractions.Services;
 using SchoolFaceRecognition.Core.DTOs.Entities;
@@ -30,9 +32,28 @@ namespace SchoolFaceRecognition.BL.Services
             if (students is null || students.Any() is false)
                 throw new DataNotFoundException();
 
-            IEnumerable<StudentDTO> studentDTOs = _mapper.Map<IEnumerable<StudentDTO>>(students);
+            IEnumerable<StudentDto> StudentDtos = _mapper.Map<IEnumerable<StudentDto>>(students);
 
-            return new SuccessResponse<IEnumerable<StudentDTO>>(studentDTOs);
+            return new SuccessResponse<IEnumerable<StudentDto>>(StudentDtos);
+        }
+
+        public async Task<Response> CreateAsync(StudentDto studentDto, CancellationToken cancellationToken = default)
+        {
+            if (studentDto is null)
+                throw new BadRequestException();
+
+            Validator<StudentDtoValidator, StudentDto> validator = new(new StudentDtoValidator(), studentDto);
+
+            if (validator.IsValid is false)
+                return new ErrorResponse(HttpStatusCode.BadRequest, validator.Errors);
+
+            Student student = _mapper.Map<Student>(studentDto);
+
+            await _unitOfWork.StudentRepository.AddAsync(student, cancellationToken);
+
+            await _unitOfWork.CommitAsync(cancellationToken);
+
+            return new SuccessResponse<StudentDto>(studentDto ,HttpStatusCode.Created);
         }
     }
 }

@@ -9,6 +9,8 @@ namespace SchoolFaceRecognition.DAL.Configurations
         public void Configure(EntityTypeBuilder<AppUser> builder)
         {
             builder.Property(x => x.City).HasColumnName("City").HasMaxLength(100);
+
+            builder.Property(x => x.Id).ValueGeneratedOnAdd();
         }
     }
 }

@@ -21,5 +21,17 @@ namespace SchoolFaceRecognition.API.Controllers.Base
                 _ => StatusCode((int)HttpStatusCode.NotFound, result),
             };
         }
+
+        protected IActionResult Result(Response response)
+        {
+            return response.StatusCode switch
+            {
+                HttpStatusCode.OK => Ok(response),
+                HttpStatusCode.NotFound => NotFound(response),
+                HttpStatusCode.BadRequest => BadRequest(response),
+                HttpStatusCode.InternalServerError => StatusCode((int)HttpStatusCode.InternalServerError, response),
+                _ => StatusCode((int)HttpStatusCode.NotFound, response),
+            };
+        }
     }
 }

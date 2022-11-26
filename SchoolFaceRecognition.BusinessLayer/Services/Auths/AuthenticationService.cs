@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using SchoolFaceRecognition.Core.Abstractions;
 using SchoolFaceRecognition.Core.Abstractions.Services.Auths;
@@ -101,7 +100,7 @@ namespace SchoolFaceRecognition.BL.Services.Auths
             return new SuccessResponse<TokenDto>(tokenDto);
         }
 
-        public Response CreateTokenByToken(ClientLoginDto clientLoginDto, CancellationToken cancellationToken = default)
+        public Response CreateTokenByClient(ClientLoginDto clientLoginDto, CancellationToken cancellationToken = default)
         {
             Client client = _clients.FirstOrDefault(x => x.Id == clientLoginDto.Id && x.Secret == clientLoginDto.Secret);
 

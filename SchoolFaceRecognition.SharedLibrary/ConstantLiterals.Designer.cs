@@ -70,6 +70,87 @@ namespace SchoolFaceRecognition.SharedLibrary {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ata adı boş ola bilməz..
+        /// </summary>
+        public static string FatherNameCanNotBeEmpty {
+            get {
+                return ResourceManager.GetString("FatherNameCanNotBeEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Qrup təyin edilməlidir..
+        /// </summary>
+        public static string GroupCanNotBeEmpty {
+            get {
+                return ResourceManager.GetString("GroupCanNotBeEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Məlumat daxil edilməyib..
+        /// </summary>
+        public static string InputValuesIsEmpty {
+            get {
+                return ResourceManager.GetString("InputValuesIsEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ad boş ola bilməz..
+        /// </summary>
+        public static string NameCanNotBeEmpty {
+            get {
+                return ResourceManager.GetString("NameCanNotBeEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Soyad boş ola bilməz..
+        /// </summary>
+        public static string SurnameCanNotBeEmpty {
+            get {
+                return ResourceManager.GetString("SurnameCanNotBeEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Şəhər boş ola bilməz..
+        /// </summary>
+        public static string UserCityCanNotBeEmpty {
+            get {
+                return ResourceManager.GetString("UserCityCanNotBeEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email boş ola bilməz..
+        /// </summary>
+        public static string UserEmailCanNotBeEmpty {
+            get {
+                return ResourceManager.GetString("UserEmailCanNotBeEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email düzgün formatda deyil..
+        /// </summary>
+        public static string UserEmailIsNotCorrect {
+            get {
+                return ResourceManager.GetString("UserEmailIsNotCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sizin bu əməliyyatı etmək üçün icazəniz yoxdur.
+        /// </summary>
+        public static string UserForbiddenMessage {
+            get {
+                return ResourceManager.GetString("UserForbiddenMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Daxili xəta baş verdi..
         /// </summary>
         public static string UserInternalErrorMessage {
@@ -79,11 +160,38 @@ namespace SchoolFaceRecognition.SharedLibrary {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to İcazəniz yoxdur..
+        /// </summary>
+        public static string UserIsNotAuthorizedMessage {
+            get {
+                return ResourceManager.GetString("UserIsNotAuthorizedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to İstifadəçi adı boş ola bilməz..
+        /// </summary>
+        public static string UserNameCanNotBeEmpty {
+            get {
+                return ResourceManager.GetString("UserNameCanNotBeEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to İstifadəçi tapılmadı..
         /// </summary>
         public static string UserNotFoundMessage {
             get {
                 return ResourceManager.GetString("UserNotFoundMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parol boş ola bilməz..
+        /// </summary>
+        public static string UserPasswordCanNotBeEmpty {
+            get {
+                return ResourceManager.GetString("UserPasswordCanNotBeEmpty", resourceCulture);
             }
         }
     }

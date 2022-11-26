@@ -13,7 +13,8 @@ namespace SchoolFaceRecognition.DAL.AutoFac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.Register(n => {
+            builder.Register(n =>
+            {
                 IConfiguration configuration = n.Resolve<IConfiguration>();
 
                 DbContextOptionsBuilder<SchoolDbContext> opt = new();
