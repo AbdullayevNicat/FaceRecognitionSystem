@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace SchoolFaceRecognition.DAL.AppDbContext
 {
-    public class SchoolDbContext : IdentityDbContext<AppUser,IdentityRole,string>
+    public class SchoolDbContext : DbContext
     {
         public SchoolDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions) { }
 

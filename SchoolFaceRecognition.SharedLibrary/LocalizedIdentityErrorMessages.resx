@@ -150,4 +150,10 @@
   <data name="PasswordTooShort" xml:space="preserve">
     <value>Parol qısadır.</value>
   </data>
+  <data name="UserAlreadyHasTaken" xml:space="preserve">
+    <value>İstifadəçi artıq var.</value>
+  </data>
+  <data name="UserNameTooShort" xml:space="preserve">
+    <value>İstifadəçi adı qısadır.</value>
+  </data>
 </root>

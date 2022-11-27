@@ -15,6 +15,7 @@ namespace SchoolFaceRecognition.API.Controllers.Base
             return result.StatusCode switch
             {
                 HttpStatusCode.OK => Ok(result),
+                HttpStatusCode.Created=> StatusCode((int)HttpStatusCode.Created, result),
                 HttpStatusCode.NotFound => NotFound(result),
                 HttpStatusCode.BadRequest => BadRequest(result),
                 HttpStatusCode.InternalServerError => StatusCode((int)HttpStatusCode.InternalServerError, result),
@@ -27,6 +28,7 @@ namespace SchoolFaceRecognition.API.Controllers.Base
             return response.StatusCode switch
             {
                 HttpStatusCode.OK => Ok(response),
+                HttpStatusCode.Created => StatusCode((int)HttpStatusCode.Created, response),
                 HttpStatusCode.NotFound => NotFound(response),
                 HttpStatusCode.BadRequest => BadRequest(response),
                 HttpStatusCode.InternalServerError => StatusCode((int)HttpStatusCode.InternalServerError, response),

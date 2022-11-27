@@ -14,7 +14,6 @@ C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFace
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\obj\Debug\net6.0\SchoolFaceRecognition.API.AssemblyInfoInputs.cache
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\obj\Debug\net6.0\SchoolFaceRecognition.API.AssemblyInfo.cs
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\obj\Debug\net6.0\SchoolFaceRecognition.API.csproj.CoreCompileInputs.cache
-C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\obj\Debug\net6.0\SchoolFaceRecognition.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\obj\Debug\net6.0\SchoolFaceRecognition.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\obj\Debug\net6.0\staticwebassets.development.json
@@ -164,10 +163,14 @@ C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceReco
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.API\bin\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.dll
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.API\bin\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.pdb
-C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\bin\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.dll
 C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\bin\Debug\net6.0\SchoolFaceRecognition.SharedLibrary.pdb
-C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.API\obj\Debug\net6.0\SchoolFaceRecognition.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\user\Desktop\SchoolFaceRecognition\FaceRecognitionSystem\SchoolFaceRecognition.API\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\bin\Debug\net6.0\Isopoh.Cryptography.Argon2.dll
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\bin\Debug\net6.0\Isopoh.Cryptography.Blake2b.dll
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\bin\Debug\net6.0\Isopoh.Cryptography.SecureArray.dll
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\obj\Debug\net6.0\SchoolFaceRecognition.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Nicat\Desktop\Programming\.NET\ASP.NET\SchoolFaceRecognition\SchoolFaceRecognition\SchoolFaceRecognition.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

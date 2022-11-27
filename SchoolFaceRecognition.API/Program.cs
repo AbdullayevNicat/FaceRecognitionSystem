@@ -13,17 +13,14 @@ builder.Host.AddAutoFac();
 
 builder.Services.AddOptionPatterns(builder.Configuration);
 
-builder.Services.AddIdentityConfigurations();
-
-builder.Services.AddAuthenticationExtension(builder.Configuration);
-
-builder.Services.AddAuthentication();
-
 builder.Services.AddRouting(opt =>
 {
     opt.LowercaseUrls = true;
     opt.LowercaseQueryStrings = true;
 });
+
+builder.Services.AddJwtConfigs(builder.Configuration);
+builder.Services.AddAuthorization();
 
 builder.Services.AddControllers(options =>
     options.Conventions.Add(new RouteTokenTransformerConvention(new SlugifyParameterTransformer())));

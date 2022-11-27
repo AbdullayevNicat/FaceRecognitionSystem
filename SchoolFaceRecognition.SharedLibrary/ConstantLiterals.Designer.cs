@@ -178,6 +178,15 @@ namespace SchoolFaceRecognition.SharedLibrary {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to İsdifadəçi adı və ya parol səhvdir..
+        /// </summary>
+        public static string UserNameOrPasswordIsFalse {
+            get {
+                return ResourceManager.GetString("UserNameOrPasswordIsFalse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to İstifadəçi tapılmadı..
         /// </summary>
         public static string UserNotFoundMessage {

@@ -156,6 +156,9 @@
   <data name="UserNameCanNotBeEmpty" xml:space="preserve">
     <value>İstifadəçi adı boş ola bilməz.</value>
   </data>
+  <data name="UserNameOrPasswordIsFalse" xml:space="preserve">
+    <value>İsdifadəçi adı və ya parol səhvdir.</value>
+  </data>
   <data name="UserNotFoundMessage" xml:space="preserve">
     <value>İstifadəçi tapılmadı.</value>
   </data>
