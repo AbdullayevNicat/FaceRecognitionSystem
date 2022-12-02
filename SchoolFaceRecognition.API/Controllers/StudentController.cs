@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SchoolFaceRecognition.API.Configurations.Filters;
 using SchoolFaceRecognition.API.Controllers.Base;
 using SchoolFaceRecognition.Core.Abstractions.Services;
 using SchoolFaceRecognition.Core.DTOs.Entities;
+using SchoolFaceRecognition.Core.Enums;
 
 namespace SchoolFaceRecognition.API.Controllers
 {
+    [UserAuthorizer(RoleType.Admin, RoleType.Director)]
     public class StudentController : AncestorController
     {
         private readonly IStudentService _studentService;

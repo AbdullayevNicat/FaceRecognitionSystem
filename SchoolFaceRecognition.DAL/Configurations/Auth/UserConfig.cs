@@ -34,19 +34,14 @@ namespace SchoolFaceRecognition.DAL.Configurations.Auth
             builder.Property(x => x.IsBlocked)
               .HasColumnName("IS_BLOCKED");
 
-            builder.Property(x => x.RoleId)
-              .HasColumnName("ROLE_ID");
-
             builder.HasIndex(x => x.Email)
                 .HasDatabaseName("UK_USERS_EMAIL").IsUnique();
 
             builder.HasIndex(x => x.UserName)
                 .HasDatabaseName("UK_USERS_USER_NAME").IsUnique();
 
-            builder.HasOne(x => x.Role)
-                .WithMany(x => x.Users)
-                .HasForeignKey(x => x.RoleId).IsRequired(false)
-                .HasConstraintName("FK_USERS_ROLE_ID");
+            builder.HasMany(x => x.UserRoles)
+                .WithOne(x => x.User);
 
             builder.ToTable("USERS", "AUTH");
 

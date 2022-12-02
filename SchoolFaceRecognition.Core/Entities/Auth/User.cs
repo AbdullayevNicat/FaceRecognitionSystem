@@ -11,8 +11,7 @@ namespace SchoolFaceRecognition.Core.Entities.Auth
         public byte? Age { get; set; }
         public bool IsBlocked { get; set; }
 
-        public Role Role { get; set; }
-        public int? RoleId { get; set; }
+        public ICollection<UserRole> UserRoles { get; set; }
 
         public RefreshToken RefreshToken { get; set; }
     }

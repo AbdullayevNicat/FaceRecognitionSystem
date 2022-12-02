@@ -5,8 +5,6 @@ using SchoolFaceRecognition.API.Configurations.Helpers;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddHttpContextAccessor();
-
 builder.Services.AddMappers();
 
 builder.Host.AddAutoFac();
@@ -19,12 +17,15 @@ builder.Services.AddRouting(opt =>
     opt.LowercaseQueryStrings = true;
 });
 
+builder.Services.AddRedis(builder.Configuration);
+
 builder.Services.AddJwtConfigs(builder.Configuration);
 builder.Services.AddAuthorization();
 
 builder.Services.AddControllers(options =>
     options.Conventions.Add(new RouteTokenTransformerConvention(new SlugifyParameterTransformer())));
 
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerExtension();
 

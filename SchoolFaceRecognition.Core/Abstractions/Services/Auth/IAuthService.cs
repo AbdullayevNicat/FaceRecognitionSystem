@@ -9,10 +9,10 @@ namespace SchoolFaceRecognition.Core.Abstractions.Services.Auth
 
         Task<Response> CreateTokenByRefreshTokenAsync(RefreshTokenDto refreshTokenDto, CancellationToken cancellationToken);
 
-        Task<Response> BlockUserByUserNameAsync(BlockedUserDto blockedUserDto, CancellationToken cancellationToken);
+        Task<Response> BlockUserByUserNameAsync(CancellationToken cancellationToken);
 
         Task<Response> RevokeRefreshTokenAsync(RefreshTokenDto refreshTokenDto, CancellationToken cancellationToken);
 
-        Task<Response> RevokeAccessTokenAsync(AccessTokenDto accessTokenDto, CancellationToken cancellationToken);
+        Task<Response> RevokeAccessTokenAsync(CancellationToken cancellationToken);
     }
 }

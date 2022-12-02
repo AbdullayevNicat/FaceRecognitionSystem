@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.StackExchangeRedis;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SchoolFaceRecognition.BL.AutoMappers;
@@ -86,9 +88,23 @@ namespace SchoolFaceRecognition.API.Configurations.Extentions
                     ValidateIssuer = true,
                     ValidateAudience = true,
                     ValidateIssuerSigningKey = true,
+                    ValidateLifetime= true,
                     ClockSkew = TimeSpan.Zero,
                 };
             });
+
+            return serviceCollection;
+        }
+
+        public static IServiceCollection AddRedis(this IServiceCollection serviceCollection,
+                                                           IConfiguration configuration)
+        {
+            serviceCollection.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = configuration.GetSection("Redis").Value;
+            });
+
+            serviceCollection.Add(ServiceDescriptor.Singleton<IDistributedCache, RedisCache>());
 
             return serviceCollection;
         }
