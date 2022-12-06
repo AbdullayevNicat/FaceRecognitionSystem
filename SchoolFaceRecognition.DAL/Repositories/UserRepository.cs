@@ -27,6 +27,8 @@ namespace SchoolFaceRecognition.DAL.Repositories
             return await _schoolDbContext.Set<User>()
                 .Include(x => x.RefreshToken)
                 .Include(x=>x.UserRoles).ThenInclude(x=>x.Role)
+                                        .ThenInclude(x=>x.RolePermissions)
+                                        .ThenInclude(x=>x.Permission)
                             .IgnoreQueryFilters()
                             .FirstOrDefaultAsync(expression, cancellationToken);
         }

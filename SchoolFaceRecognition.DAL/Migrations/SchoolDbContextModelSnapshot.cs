@@ -191,6 +191,92 @@ namespace SchoolFaceRecognition.DAL.Migrations
                     b.ToTable("CLIENTSAUDIENCES", "AUTH");
                 });
 
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.Permission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CreaterUser")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("CREATER_USER");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CREATION_DATE");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_DELETED");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("NAME");
+
+                    b.Property<string>("RemoverUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("REMOVER_USER");
+
+                    b.Property<DateTime?>("RemovingDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("REMOVING_DATE");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UPDATE_DATE");
+
+                    b.Property<string>("UpdaterUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("UPDATER_USER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PERMISSIONS", "AUTH");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreaterUser = "Admin",
+                            CreationDate = new DateTime(2022, 12, 6, 7, 52, 1, 94, DateTimeKind.Local).AddTicks(8577),
+                            IsDeleted = false,
+                            Name = "Read"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreaterUser = "Admin",
+                            CreationDate = new DateTime(2022, 12, 6, 7, 52, 1, 94, DateTimeKind.Local).AddTicks(8593),
+                            IsDeleted = false,
+                            Name = "Create"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreaterUser = "Admin",
+                            CreationDate = new DateTime(2022, 12, 6, 7, 52, 1, 94, DateTimeKind.Local).AddTicks(8594),
+                            IsDeleted = false,
+                            Name = "Update"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreaterUser = "Admin",
+                            CreationDate = new DateTime(2022, 12, 6, 7, 52, 1, 94, DateTimeKind.Local).AddTicks(8596),
+                            IsDeleted = false,
+                            Name = "Delete"
+                        });
+                });
+
             modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.RefreshToken", b =>
                 {
                     b.Property<int>("Id")
@@ -309,7 +395,7 @@ namespace SchoolFaceRecognition.DAL.Migrations
                         {
                             Id = 1,
                             CreaterUser = "Admin",
-                            CreationDate = new DateTime(2022, 11, 30, 7, 55, 0, 152, DateTimeKind.Local).AddTicks(2708),
+                            CreationDate = new DateTime(2022, 12, 6, 7, 52, 1, 142, DateTimeKind.Local).AddTicks(7734),
                             IsDeleted = false,
                             Name = "Teacher"
                         },
@@ -317,7 +403,7 @@ namespace SchoolFaceRecognition.DAL.Migrations
                         {
                             Id = 2,
                             CreaterUser = "Admin",
-                            CreationDate = new DateTime(2022, 11, 30, 7, 55, 0, 152, DateTimeKind.Local).AddTicks(2727),
+                            CreationDate = new DateTime(2022, 12, 6, 7, 52, 1, 142, DateTimeKind.Local).AddTicks(7751),
                             IsDeleted = false,
                             Name = "Director"
                         },
@@ -325,10 +411,69 @@ namespace SchoolFaceRecognition.DAL.Migrations
                         {
                             Id = 3,
                             CreaterUser = "Admin",
-                            CreationDate = new DateTime(2022, 11, 30, 7, 55, 0, 152, DateTimeKind.Local).AddTicks(2729),
+                            CreationDate = new DateTime(2022, 12, 6, 7, 52, 1, 142, DateTimeKind.Local).AddTicks(7753),
                             IsDeleted = false,
                             Name = "Admin"
                         });
+                });
+
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.RolePermission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CreaterUser")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("CREATER_USER");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CREATION_DATE");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_DELETED");
+
+                    b.Property<string>("RemoverUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("REMOVER_USER");
+
+                    b.Property<DateTime?>("RemovingDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("REMOVING_DATE");
+
+                    b.Property<int>("RoleTypeId")
+                        .HasColumnType("int")
+                        .HasColumnName("ROLE_ID");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UPDATE_DATE");
+
+                    b.Property<string>("UpdaterUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("UPDATER_USER");
+
+                    b.Property<int>("UserRolePermissionId")
+                        .HasColumnType("int")
+                        .HasColumnName("PERMISSION_ID");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserRolePermissionId");
+
+                    b.HasIndex("RoleTypeId", "UserRolePermissionId")
+                        .IsUnique();
+
+                    b.ToTable("ROLES_PERMISSIONS", "AUTH");
                 });
 
             modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.User", b =>
@@ -776,6 +921,25 @@ namespace SchoolFaceRecognition.DAL.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.RolePermission", b =>
+                {
+                    b.HasOne("SchoolFaceRecognition.Core.Entities.Auth.Role", "Role")
+                        .WithMany("RolePermissions")
+                        .HasForeignKey("RoleTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SchoolFaceRecognition.Core.Entities.Auth.Permission", "Permission")
+                        .WithMany("RolePermissions")
+                        .HasForeignKey("UserRolePermissionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Permission");
+
+                    b.Navigation("Role");
+                });
+
             modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.UserRole", b =>
                 {
                     b.HasOne("SchoolFaceRecognition.Core.Entities.Auth.Role", "Role")
@@ -838,8 +1002,15 @@ namespace SchoolFaceRecognition.DAL.Migrations
                     b.Navigation("ClientAudiences");
                 });
 
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.Permission", b =>
+                {
+                    b.Navigation("RolePermissions");
+                });
+
             modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.Role", b =>
                 {
+                    b.Navigation("RolePermissions");
+
                     b.Navigation("UserRoles");
                 });
 

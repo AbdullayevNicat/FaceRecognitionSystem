@@ -81,6 +81,16 @@ namespace SchoolFaceRecognition.BL.Services.Auth
             if (user.UserRoles?.Count > 0)
             {
                 claims.AddRange(user.UserRoles.Select(x => new Claim(ClaimTypes.Role, x.Role.Name)));
+
+                IEnumerable<RolePermission> rolePermissions = user.UserRoles
+                            .Select(x=>x.Role).SelectMany(x=>x.RolePermissions).ToList();
+
+                if(rolePermissions?.Count() > 0)
+                {
+                    rolePermissions = rolePermissions.DistinctBy(x=>x.Permission.Name).ToList();
+
+                    claims.AddRange(rolePermissions.Select(x => new Claim(ClaimTypes.AuthorizationDecision, x.Permission.Name)));
+                }
             }
 
             claims.AddRange(_tokenOptionDto.Audiences.Select(x => new Claim(JwtRegisteredClaimNames.Aud, x)));

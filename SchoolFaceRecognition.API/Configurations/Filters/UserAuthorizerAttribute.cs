@@ -7,16 +7,23 @@ using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig;
 using SchoolFaceRecognition.SharedLibrary;
 using System.Net;
 using System.Security.Claims;
+using System.Security.Principal;
 
 namespace SchoolFaceRecognition.API.Configurations.Filters
 {
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true)]
     public class UserAuthorizerAttribute : Attribute, IAuthorizationFilter
     {
-        private List<string> _roles;
-        public UserAuthorizerAttribute(params RoleType[] roleTypes) 
+        private List<RoleType> _roles;
+
+        public UserAuthorizerAttribute()
         {
-            _roles = roleTypes.Select(x=>x.ToString()).ToList();
+            _roles = new List<RoleType>();
+        }
+
+        public UserAuthorizerAttribute(params RoleType[] roleTypes) : this()
+        {
+            _roles = roleTypes.ToList() ?? new List<RoleType>();
         }
 
         public void OnAuthorization(AuthorizationFilterContext context)
@@ -26,54 +33,82 @@ namespace SchoolFaceRecognition.API.Configurations.Filters
                 return;
             }
 
-            bool isAuthenticated = context.HttpContext.User.Identity.IsAuthenticated;
+            IIdentity identity = context.HttpContext.User.Identity;
+
+            if (identity is null)
+                return;
+
+            bool isAuthenticated = identity.IsAuthenticated;
 
             if (isAuthenticated is false)
             {
-                context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                context.Result = new JsonResult(new ErrorResponse(HttpStatusCode.Unauthorized, ConstantLiterals.UserNotFoundMessage));
+                ResponseUnathorizedMessage(context);
                 return;
             }
 
-            if(isAuthenticated is true && _roles?.Count > 0)
+            if (isAuthenticated is true)
             {
-                ICacheProvider cacheProvider = context.HttpContext.RequestServices.GetRequiredService<ICacheProvider>();
+                CheckExpiredToken(context, identity);
 
-                string token = cacheProvider.Get<string>(context.HttpContext.User.Identity.Name);
-
-                if(string.IsNullOrEmpty(token) is false)
+                if (_roles.Count > 0)
                 {
-                    string comingToken = context.HttpContext.Request.Headers.Authorization.First();
-
-                    if(token == comingToken)
-                    {
-                        context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                        context.Result = new JsonResult(new ErrorResponse(HttpStatusCode.Unauthorized, ConstantLiterals.UserNotFoundMessage));
-                        return;
-                    }
+                    AuthorizeByRoles(context);
                 }
+            }
+        }
 
-                IEnumerable<Claim> claims = context.HttpContext.User.Claims.Where(x => x.Type == ClaimTypes.Role);
 
-                bool hasPermission = false;
+        #region Private Methods
+        private void CheckExpiredToken(AuthorizationFilterContext context, IIdentity identity)
+        {
+            ICacheProvider cacheProvider = context.HttpContext.RequestServices.GetRequiredService<ICacheProvider>();
 
-                foreach (Claim claim in claims)
+            string token = cacheProvider.Get<string>(identity.Name);
+
+            if (string.IsNullOrEmpty(token) is false)
+            {
+                string comingToken = context.HttpContext.Request.Headers.Authorization.First();
+
+                if (token == comingToken)
                 {
-                    if(_roles.Any(x=>x == claim.Value))
-                    {
-                        hasPermission = true;
-                        break;
-                    }
-
-                }
-
-                if (hasPermission is false)
-                {
-                    context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Forbidden;
-                    context.Result = new JsonResult(new ErrorResponse(HttpStatusCode.Forbidden, ConstantLiterals.UserForbiddenMessage));
+                    ResponseUnathorizedMessage(context);
                     return;
                 }
             }
         }
+
+        private void AuthorizeByRoles(AuthorizationFilterContext context)
+        {
+            IEnumerable<string> roles = context.HttpContext.User
+                    .Claims.Where(x => x.Type == ClaimTypes.Role)
+                            .Select(x=>x.Value).ToList();
+
+            bool hasPermission = false;
+
+            foreach (string role in roles)
+            {
+                if (_roles.Any(x => x.ToString() == role))
+                {
+                    hasPermission = true;
+                    break;
+                }
+            }
+
+            if (hasPermission is false)
+            {
+                context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Forbidden;
+                context.Result = new JsonResult(new ErrorResponse(HttpStatusCode.Forbidden, ConstantLiterals.UserForbiddenMessage));
+                return;
+            }
+        }
+
+        
+
+        private void ResponseUnathorizedMessage(AuthorizationFilterContext context)
+        {
+            context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            context.Result = new JsonResult(new ErrorResponse(HttpStatusCode.Unauthorized, ConstantLiterals.UserNotFoundMessage));
+        }
+        #endregion
     }
 }

@@ -9,5 +9,6 @@ namespace SchoolFaceRecognition.Core.Entities.Auth
         public string Name { get; set; }
 
         public ICollection<UserRole> UserRoles { get; set; }
+        public ICollection<RolePermission> RolePermissions { get; set; }
     }
 }

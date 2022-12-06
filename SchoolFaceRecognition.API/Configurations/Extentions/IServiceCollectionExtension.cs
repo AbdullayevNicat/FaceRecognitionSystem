@@ -78,6 +78,7 @@ namespace SchoolFaceRecognition.API.Configurations.Extentions
             {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
             }).AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, opt =>
             {
                 opt.TokenValidationParameters = new TokenValidationParameters()
