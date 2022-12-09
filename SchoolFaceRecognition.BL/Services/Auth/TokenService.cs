@@ -3,6 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using SchoolFaceRecognition.Core.Abstractions.Services.Auth;
 using SchoolFaceRecognition.Core.DTOs.Auth;
 using SchoolFaceRecognition.Core.Entities.Auth;
+using SchoolFaceRecognition.SharedLibrary.Constants;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -73,14 +74,14 @@ namespace SchoolFaceRecognition.BL.Services.Auth
             };
 
             if (string.IsNullOrEmpty(user.City) is false)
-                claims.Add(new Claim(ClaimTypes.Country, user.City));
+                claims.Add(new Claim(ClaimConstants.City, user.City));
 
             if (user.Age is not null)
-                claims.Add(new Claim(ClaimTypes.DateOfBirth, user.Age.ToString()));
+                claims.Add(new Claim(ClaimConstants.Age, user.Age.ToString()));
 
             if (user.UserRoles?.Count > 0)
             {
-                claims.AddRange(user.UserRoles.Select(x => new Claim(ClaimTypes.Role, x.Role.Name)));
+                claims.AddRange(user.UserRoles.Select(x => new Claim(ClaimConstants.Role, x.Role.Name)));
 
                 IEnumerable<RolePermission> rolePermissions = user.UserRoles
                             .Select(x=>x.Role).SelectMany(x=>x.RolePermissions).ToList();
@@ -89,7 +90,7 @@ namespace SchoolFaceRecognition.BL.Services.Auth
                 {
                     rolePermissions = rolePermissions.DistinctBy(x=>x.Permission.Name).ToList();
 
-                    claims.AddRange(rolePermissions.Select(x => new Claim(ClaimTypes.AuthorizationDecision, x.Permission.Name)));
+                    claims.AddRange(rolePermissions.Select(x => new Claim(ClaimConstants.Permission, x.Permission.Name)));
                 }
             }
 

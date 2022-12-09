@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using SchoolFaceRecognition.Core.Enums;
 using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig;
 using SchoolFaceRecognition.SharedLibrary;
+using SchoolFaceRecognition.SharedLibrary.Constants;
 using System.Net;
-using System.Security.Claims;
 using System.Security.Principal;
 
 namespace SchoolFaceRecognition.API.Configurations.Filters
@@ -42,7 +42,9 @@ namespace SchoolFaceRecognition.API.Configurations.Filters
         #region Private Section
         private void AuthorizeByPermissions(AuthorizationFilterContext context)
         {
-            IEnumerable<string> permissions = context.HttpContext.User.Claims.Where(x => x.Type == ClaimTypes.AuthorizationDecision).Select(x => x.Value).ToList();
+            IEnumerable<string> permissions = context.HttpContext
+                .User.Claims.Where(x => x.Type == ClaimConstants.Permission)
+                    .Select(x => x.Value).ToList();
 
             bool hasPermission = false;
 

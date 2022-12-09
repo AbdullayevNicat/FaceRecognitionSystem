@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SchoolFaceRecognition.BL.AutoMappers;
 using SchoolFaceRecognition.Core.DTOs.Auth;
+using System.Reflection;
 using System.Text;
 
 namespace SchoolFaceRecognition.API.Configurations.Extentions
@@ -46,6 +47,9 @@ namespace SchoolFaceRecognition.API.Configurations.Extentions
                     new List<string>()
                     }
                 });
+
+                var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
             });
 
             return serviceCollection;

@@ -2,8 +2,8 @@
 using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig;
 using SchoolFaceRecognition.SharedLibrary;
 using System.Net;
-using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc.Filters;
+using SchoolFaceRecognition.SharedLibrary.Constants;
 
 namespace SchoolFaceRecognition.API.Configurations.Helpers
 {
@@ -11,7 +11,7 @@ namespace SchoolFaceRecognition.API.Configurations.Helpers
     {
         public static void RequireAge(int age, AuthorizationFilterContext context)
         {
-            if (int.TryParse(context.HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.DateOfBirth).Value, out int userAge))
+            if (int.TryParse(context.HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimConstants.Age).Value, out int userAge))
             {
                 if (age > userAge)
                 {

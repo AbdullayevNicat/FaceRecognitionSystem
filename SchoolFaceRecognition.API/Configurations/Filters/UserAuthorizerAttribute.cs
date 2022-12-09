@@ -5,6 +5,7 @@ using SchoolFaceRecognition.Core.Abstractions.Services.Cache;
 using SchoolFaceRecognition.Core.Enums;
 using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig;
 using SchoolFaceRecognition.SharedLibrary;
+using SchoolFaceRecognition.SharedLibrary.Constants;
 using System.Net;
 using System.Security.Claims;
 using System.Security.Principal;
@@ -80,7 +81,7 @@ namespace SchoolFaceRecognition.API.Configurations.Filters
         private void AuthorizeByRoles(AuthorizationFilterContext context)
         {
             IEnumerable<string> roles = context.HttpContext.User
-                    .Claims.Where(x => x.Type == ClaimTypes.Role)
+                    .Claims.Where(x => x.Type == ClaimConstants.Role)
                             .Select(x=>x.Value).ToList();
 
             bool hasPermission = false;

@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace SchoolFaceRecognition.Core.Infrastructure.ResponseConfig.Base
 {
-    public class Response
+    public class Response 
     {
         [JsonPropertyName("status")]
         public HttpStatusCode StatusCode { get; set; }
