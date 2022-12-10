@@ -1,9 +1,11 @@
 ﻿using Autofac;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using SchoolFaceRecognition.Core.Abstractions;
 using SchoolFaceRecognition.Core.Abstractions.Repositories;
 using SchoolFaceRecognition.DAL.AppDbContext;
+using SchoolFaceRecognition.DAL.Helpers;
 using SchoolFaceRecognition.DAL.Repositories;
 using SchoolFaceRecognition.DAL.Repositories.Base;
 
@@ -21,9 +23,11 @@ namespace SchoolFaceRecognition.DAL.AutoFac
 
                 //opt.UseOracle(configuration.GetConnectionString("ORACLE"));
 
-                //opt.UseSqlServer(configuration.GetConnectionString("MSSQL_WORK"));
+                opt.UseSqlServer(configuration.GetConnectionString("MSSQL_WORK"))
+                    //.LogTo(ContextHelper.LogToFile, LogLevel.Information)
+                    .LogTo(Console.WriteLine, LogLevel.Information);
 
-                opt.UseSqlServer(configuration.GetConnectionString("MSSQL"));
+                //opt.UseSqlServer(configuration.GetConnectionString("MSSQL"));
 
                 return new SchoolDbContext(opt.Options);
 
@@ -34,10 +38,13 @@ namespace SchoolFaceRecognition.DAL.AutoFac
             builder.RegisterType<SpecialityRepository>().As<ISpecialityRepository>().InstancePerLifetimeScope();
             builder.RegisterType<ContinuityRepository>().As<IContinuityRepository>().InstancePerLifetimeScope();
             builder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<RefreshTokenRepository>().As<IRefreshTokenRepository>().InstancePerLifetimeScope();
 
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
 
             base.Load(builder);
         }
+
+       
     }
 }

@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.StackExchangeRedis;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SchoolFaceRecognition.BL.AutoMappers;
 using SchoolFaceRecognition.Core.DTOs.Auth;
+using System.Reflection;
 using System.Text;
 
 namespace SchoolFaceRecognition.API.Configurations.Extentions
@@ -44,6 +47,9 @@ namespace SchoolFaceRecognition.API.Configurations.Extentions
                     new List<string>()
                     }
                 });
+
+                var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
             });
 
             return serviceCollection;
@@ -76,6 +82,7 @@ namespace SchoolFaceRecognition.API.Configurations.Extentions
             {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
             }).AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, opt =>
             {
                 opt.TokenValidationParameters = new TokenValidationParameters()
@@ -86,9 +93,23 @@ namespace SchoolFaceRecognition.API.Configurations.Extentions
                     ValidateIssuer = true,
                     ValidateAudience = true,
                     ValidateIssuerSigningKey = true,
+                    ValidateLifetime= true,
                     ClockSkew = TimeSpan.Zero,
                 };
             });
+
+            return serviceCollection;
+        }
+
+        public static IServiceCollection AddRedis(this IServiceCollection serviceCollection,
+                                                           IConfiguration configuration)
+        {
+            serviceCollection.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = configuration.GetSection("Redis").Value;
+            });
+
+            serviceCollection.Add(ServiceDescriptor.Singleton<IDistributedCache, RedisCache>());
 
             return serviceCollection;
         }

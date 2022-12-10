@@ -835,23 +835,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nicat\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nicat\\Desktop\\Programming\\.NET\\ASP.NET\\SchoolFaceRecognition\\SchoolFaceRecognition\\SchoolFaceRecognition.Core\\SchoolFaceRecognition.Core.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Desktop\\SchoolFaceRecognition\\FaceRecognitionSystem\\SchoolFaceRecognition.Core\\SchoolFaceRecognition.Core.csproj",
       "projectName": "SchoolFaceRecognition.Core",
-      "projectPath": "C:\\Users\\Nicat\\Desktop\\Programming\\.NET\\ASP.NET\\SchoolFaceRecognition\\SchoolFaceRecognition\\SchoolFaceRecognition.Core\\SchoolFaceRecognition.Core.csproj",
-      "packagesPath": "C:\\Users\\Nicat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nicat\\Desktop\\Programming\\.NET\\ASP.NET\\SchoolFaceRecognition\\SchoolFaceRecognition\\SchoolFaceRecognition.Core\\obj\\",
+      "projectPath": "C:\\Users\\user\\Desktop\\SchoolFaceRecognition\\FaceRecognitionSystem\\SchoolFaceRecognition.Core\\SchoolFaceRecognition.Core.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\Desktop\\SchoolFaceRecognition\\FaceRecognitionSystem\\SchoolFaceRecognition.Core\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Nicat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -859,14 +855,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "\\\\nugetstore.mlspp.gov.az\\Default FTP\\MLSPP NuGet packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Nicat\\Desktop\\Programming\\.NET\\ASP.NET\\SchoolFaceRecognition\\SchoolFaceRecognition\\SchoolFaceRecognition.SharedLibrary\\SchoolFaceRecognition.SharedLibrary.csproj": {
-              "projectPath": "C:\\Users\\Nicat\\Desktop\\Programming\\.NET\\ASP.NET\\SchoolFaceRecognition\\SchoolFaceRecognition\\SchoolFaceRecognition.SharedLibrary\\SchoolFaceRecognition.SharedLibrary.csproj"
+            "C:\\Users\\user\\Desktop\\SchoolFaceRecognition\\FaceRecognitionSystem\\SchoolFaceRecognition.SharedLibrary\\SchoolFaceRecognition.SharedLibrary.csproj": {
+              "projectPath": "C:\\Users\\user\\Desktop\\SchoolFaceRecognition\\FaceRecognitionSystem\\SchoolFaceRecognition.SharedLibrary\\SchoolFaceRecognition.SharedLibrary.csproj"
             }
           }
         }

@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SchoolFaceRecognition.API.Configurations.Filters;
 using SchoolFaceRecognition.API.Controllers.Base;
 using SchoolFaceRecognition.Core.Abstractions.Services.Auth;
 using SchoolFaceRecognition.Core.DTOs.Auth;
+using SchoolFaceRecognition.Core.Enums;
 
 namespace SchoolFaceRecognition.API.Controllers
 {
@@ -27,9 +29,9 @@ namespace SchoolFaceRecognition.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> BlockUserByUserName(BlockedUserDto blockedUserDto, CancellationToken cancellationToken)
+        public async Task<IActionResult> BlockUserByUserName(CancellationToken cancellationToken)
         {
-            return await ResultAsync(_authService.BlockUserByUserNameAsync(blockedUserDto, cancellationToken));
+            return await ResultAsync(_authService.BlockUserByUserNameAsync(cancellationToken));
         }
 
         [HttpPost]
@@ -39,9 +41,10 @@ namespace SchoolFaceRecognition.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> RevokeAccessToken(AccessTokenDto accessTokenDto, CancellationToken cancellationToken)
+        [UserAuthorizer(RoleType.Teacher)]
+        public async Task<IActionResult> RevokeAccessToken(CancellationToken cancellationToken)
         {
-            return await ResultAsync(_authService.RevokeAccessTokenAsync(accessTokenDto, cancellationToken));
+            return await ResultAsync(_authService.RevokeAccessTokenAsync(cancellationToken));
         }
     }
 }

@@ -25,10 +25,6 @@ namespace SchoolFaceRecognition.DAL.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "REFRESH_TOKENS",
-                schema: "AUTH");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(

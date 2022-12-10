@@ -1,12 +1,20 @@
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using SchoolFaceRecognition.API.Configurations.Extentions;
 using SchoolFaceRecognition.API.Configurations.Helpers;
+using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddHttpContextAccessor();
+builder.Services.AddControllers(options =>
+{
+    options.Conventions.Add(new RouteTokenTransformerConvention(new SlugifyParameterTransformer()));
+    options.OutputFormatters.RemoveType<StringOutputFormatter>();
+    options.OutputFormatters.RemoveType<HttpNoContentOutputFormatter>();
+}).AddXmlSerializerFormatters();
 
+// Add services to the container.
 builder.Services.AddMappers();
 
 builder.Host.AddAutoFac();
@@ -19,14 +27,15 @@ builder.Services.AddRouting(opt =>
     opt.LowercaseQueryStrings = true;
 });
 
+builder.Services.AddRedis(builder.Configuration);
+
 builder.Services.AddJwtConfigs(builder.Configuration);
-builder.Services.AddAuthorization();
 
-builder.Services.AddControllers(options =>
-    options.Conventions.Add(new RouteTokenTransformerConvention(new SlugifyParameterTransformer())));
-
-builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddSwaggerExtension();
+
+builder.Services.AddTransient<ProblemDetailsFactory, CustomProblemDetailsFactory>();
+
 
 var app = builder.Build();
 
@@ -41,11 +50,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseRouting();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-
 app.Run();

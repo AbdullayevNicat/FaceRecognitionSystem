@@ -160,6 +160,15 @@ namespace SchoolFaceRecognition.SharedLibrary {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to İstifadəçi bloklanıb..
+        /// </summary>
+        public static string UserIsBlocked {
+            get {
+                return ResourceManager.GetString("UserIsBlocked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to İcazəniz yoxdur..
         /// </summary>
         public static string UserIsNotAuthorizedMessage {
@@ -201,6 +210,15 @@ namespace SchoolFaceRecognition.SharedLibrary {
         public static string UserPasswordCanNotBeEmpty {
             get {
                 return ResourceManager.GetString("UserPasswordCanNotBeEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tokenin vaxtı bitib..
+        /// </summary>
+        public static string UserTokenHasExpired {
+            get {
+                return ResourceManager.GetString("UserTokenHasExpired", resourceCulture);
             }
         }
     }
