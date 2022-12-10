@@ -22,207 +22,602 @@ namespace SchoolFaceRecognition.DAL.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
-
-                    b.ToTable("AspNetRoles", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.Audience", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ID");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RoleId")
+                    b.Property<string>("CreaterUser")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("CREATER_USER");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CREATION_DATE");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_DELETED");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("NAME");
+
+                    b.Property<string>("RemoverUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("REMOVER_USER");
+
+                    b.Property<DateTime?>("RemovingDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("REMOVING_DATE");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UPDATE_DATE");
+
+                    b.Property<string>("UpdaterUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("UPDATER_USER");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetRoleClaims", (string)null);
+                    b.ToTable("AUDIENCES", "AUTH");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.Client", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ID");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
+                    b.Property<string>("CreaterUser")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("CREATER_USER");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CREATION_DATE");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_DELETED");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("PASSWORD");
+
+                    b.Property<string>("RemoverUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("REMOVER_USER");
+
+                    b.Property<DateTime?>("RemovingDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("REMOVING_DATE");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UPDATE_DATE");
+
+                    b.Property<string>("UpdaterUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("UPDATER_USER");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("USER_NAME");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AspNetUserClaims", (string)null);
+                    b.ToTable("CLIENTS", "AUTH");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.ClientAudience", b =>
                 {
-                    b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID");
 
-                    b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AudienceId")
+                        .HasColumnType("int")
+                        .HasColumnName("AUDIENCE_ID");
 
-                    b.Property<string>("UserId")
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int")
+                        .HasColumnName("CLIENT_ID");
+
+                    b.Property<string>("CreaterUser")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("CREATER_USER");
 
-                    b.HasKey("LoginProvider", "ProviderKey");
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CREATION_DATE");
 
-                    b.HasIndex("UserId");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_DELETED");
 
-                    b.ToTable("AspNetUserLogins", (string)null);
+                    b.Property<string>("RemoverUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("REMOVER_USER");
+
+                    b.Property<DateTime?>("RemovingDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("REMOVING_DATE");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UPDATE_DATE");
+
+                    b.Property<string>("UpdaterUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("UPDATER_USER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("AudienceId", "ClientId")
+                        .IsUnique();
+
+                    b.ToTable("CLIENTSAUDIENCES", "AUTH");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.Permission", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID");
 
-                    b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.HasKey("UserId", "RoleId");
+                    b.Property<string>("CreaterUser")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("CREATER_USER");
 
-                    b.HasIndex("RoleId");
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CREATION_DATE");
 
-                    b.ToTable("AspNetUserRoles", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_DELETED");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("NAME");
 
-                    b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("RemoverUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("REMOVER_USER");
 
-                    b.HasKey("UserId", "LoginProvider", "Name");
+                    b.Property<DateTime?>("RemovingDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("REMOVING_DATE");
 
-                    b.ToTable("AspNetUserTokens", (string)null);
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UPDATE_DATE");
+
+                    b.Property<string>("UpdaterUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("UPDATER_USER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PERMISSIONS", "AUTH");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreaterUser = "Admin",
+                            CreationDate = new DateTime(2022, 12, 6, 7, 52, 1, 94, DateTimeKind.Local).AddTicks(8577),
+                            IsDeleted = false,
+                            Name = "Read"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreaterUser = "Admin",
+                            CreationDate = new DateTime(2022, 12, 6, 7, 52, 1, 94, DateTimeKind.Local).AddTicks(8593),
+                            IsDeleted = false,
+                            Name = "Create"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreaterUser = "Admin",
+                            CreationDate = new DateTime(2022, 12, 6, 7, 52, 1, 94, DateTimeKind.Local).AddTicks(8594),
+                            IsDeleted = false,
+                            Name = "Update"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreaterUser = "Admin",
+                            CreationDate = new DateTime(2022, 12, 6, 7, 52, 1, 94, DateTimeKind.Local).AddTicks(8596),
+                            IsDeleted = false,
+                            Name = "Delete"
+                        });
                 });
 
-            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.AppUser", b =>
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.RefreshToken", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID");
 
-                    b.Property<int>("AccessFailedCount")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CreaterUser")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("CREATER_USER");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CREATION_DATE");
+
+                    b.Property<DateTime>("Expiration")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("EXPIRATION");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_DELETED");
+
+                    b.Property<string>("RemoverUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("REMOVER_USER");
+
+                    b.Property<DateTime?>("RemovingDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("REMOVING_DATE");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)")
+                        .HasColumnName("TOKEN");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UPDATE_DATE");
+
+                    b.Property<string>("UpdaterUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("UPDATER_USER");
+
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("REFRESH_TOKEN", "AUTH");
+                });
+
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CreaterUser")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("CREATER_USER");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CREATION_DATE");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_DELETED");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("NAME");
+
+                    b.Property<string>("RemoverUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("REMOVER_USER");
+
+                    b.Property<DateTime?>("RemovingDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("REMOVING_DATE");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UPDATE_DATE");
+
+                    b.Property<string>("UpdaterUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("UPDATER_USER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ROLES", "AUTH");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreaterUser = "Admin",
+                            CreationDate = new DateTime(2022, 12, 6, 7, 52, 1, 142, DateTimeKind.Local).AddTicks(7734),
+                            IsDeleted = false,
+                            Name = "Teacher"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreaterUser = "Admin",
+                            CreationDate = new DateTime(2022, 12, 6, 7, 52, 1, 142, DateTimeKind.Local).AddTicks(7751),
+                            IsDeleted = false,
+                            Name = "Director"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreaterUser = "Admin",
+                            CreationDate = new DateTime(2022, 12, 6, 7, 52, 1, 142, DateTimeKind.Local).AddTicks(7753),
+                            IsDeleted = false,
+                            Name = "Admin"
+                        });
+                });
+
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.RolePermission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CreaterUser")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("CREATER_USER");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CREATION_DATE");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_DELETED");
+
+                    b.Property<string>("RemoverUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("REMOVER_USER");
+
+                    b.Property<DateTime?>("RemovingDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("REMOVING_DATE");
+
+                    b.Property<int>("RoleTypeId")
+                        .HasColumnType("int")
+                        .HasColumnName("ROLE_ID");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UPDATE_DATE");
+
+                    b.Property<string>("UpdaterUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("UPDATER_USER");
+
+                    b.Property<int>("UserRolePermissionId")
+                        .HasColumnType("int")
+                        .HasColumnName("PERMISSION_ID");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserRolePermissionId");
+
+                    b.HasIndex("RoleTypeId", "UserRolePermissionId")
+                        .IsUnique();
+
+                    b.ToTable("ROLES_PERMISSIONS", "AUTH");
+                });
+
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<byte?>("Age")
+                        .HasColumnType("tinyint")
+                        .HasColumnName("AGE");
 
                     b.Property<string>("City")
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("City");
+                        .HasColumnName("CITY");
 
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("CreaterUser")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("CREATER_USER");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CREATION_DATE");
 
                     b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("EMAIL");
 
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
+                    b.Property<bool>("IsBlocked")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_BLOCKED");
 
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_DELETED");
 
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("PASSWORD");
 
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                    b.Property<string>("RemoverUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("REMOVER_USER");
 
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                    b.Property<DateTime?>("RemovingDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("REMOVING_DATE");
 
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UPDATE_DATE");
 
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
+                    b.Property<string>("UpdaterUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("UPDATER_USER");
 
                     b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("USER_NAME");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
+                    b.HasIndex("Email")
                         .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+                        .HasDatabaseName("UK_USERS_EMAIL");
 
-                    b.ToTable("AspNetUsers", (string)null);
+                    b.HasIndex("UserName")
+                        .IsUnique()
+                        .HasDatabaseName("UK_USERS_USER_NAME");
+
+                    b.ToTable("USERS", "AUTH");
+                });
+
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.UserRole", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CreaterUser")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("CREATER_USER");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CREATION_DATE");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasColumnName("IS_DELETED");
+
+                    b.Property<string>("RemoverUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("REMOVER_USER");
+
+                    b.Property<DateTime?>("RemovingDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("REMOVING_DATE");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int")
+                        .HasColumnName("ROLE_ID");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("UPDATE_DATE");
+
+                    b.Property<string>("UpdaterUser")
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("UPDATER_USER");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int")
+                        .HasColumnName("USER_ID");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("RoleId", "UserId")
+                        .IsUnique();
+
+                    b.ToTable("USERS_ROLES", "AUTH");
                 });
 
             modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Continuity", b =>
@@ -354,73 +749,6 @@ namespace SchoolFaceRecognition.DAL.Migrations
                     b.HasIndex("SpecialityId");
 
                     b.ToTable("GROUPS", "SCHOOL");
-                });
-
-            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.RefreshToken", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("ID");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("AppUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)")
-                        .HasColumnName("USER_ID");
-
-                    b.Property<string>("CreaterUser")
-                        .IsRequired()
-                        .HasMaxLength(450)
-                        .HasColumnType("nvarchar(450)")
-                        .HasColumnName("CREATER_USER");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("CREATION_DATE");
-
-                    b.Property<DateTime>("Expiration")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("EXPIRATION_DATE");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit")
-                        .HasColumnName("IS_DELETED");
-
-                    b.Property<string>("RemoverUser")
-                        .HasMaxLength(450)
-                        .HasColumnType("nvarchar(450)")
-                        .HasColumnName("REMOVER_USER");
-
-                    b.Property<DateTime?>("RemovingDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("REMOVING_DATE");
-
-                    b.Property<string>("Token")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
-                        .HasColumnName("REFRESH_TOKEN");
-
-                    b.Property<DateTime?>("UpdateDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("UPDATE_DATE");
-
-                    b.Property<string>("UpdaterUser")
-                        .HasMaxLength(450)
-                        .HasColumnType("nvarchar(450)")
-                        .HasColumnName("UPDATER_USER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
-
-                    b.HasIndex("Token", "AppUserId")
-                        .IsUnique()
-                        .HasDatabaseName("UK_REFRESH_TOKEN_USER_ID_&&_TOKEN");
-
-                    b.ToTable("REFRESH_TOKENS", "AUTH");
                 });
 
             modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Speciality", b =>
@@ -561,55 +889,74 @@ namespace SchoolFaceRecognition.DAL.Migrations
                     b.ToTable("STUDENTS", "SCHOOL");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.ClientAudience", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                        .WithMany()
+                    b.HasOne("SchoolFaceRecognition.Core.Entities.Auth.Audience", "Audience")
+                        .WithMany("ClientAudiences")
+                        .HasForeignKey("AudienceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_CLIENTSAUDIENCES_AUDIENCE_ID");
+
+                    b.HasOne("SchoolFaceRecognition.Core.Entities.Auth.Client", "Client")
+                        .WithMany("ClientAudiences")
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_CLIENTSAUDIENCES_CLIENT_ID");
+
+                    b.Navigation("Audience");
+
+                    b.Navigation("Client");
+                });
+
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.RefreshToken", b =>
+                {
+                    b.HasOne("SchoolFaceRecognition.Core.Entities.Auth.User", "User")
+                        .WithOne("RefreshToken")
+                        .HasForeignKey("SchoolFaceRecognition.Core.Entities.Auth.RefreshToken", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.RolePermission", b =>
+                {
+                    b.HasOne("SchoolFaceRecognition.Core.Entities.Auth.Role", "Role")
+                        .WithMany("RolePermissions")
+                        .HasForeignKey("RoleTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SchoolFaceRecognition.Core.Entities.Auth.Permission", "Permission")
+                        .WithMany("RolePermissions")
+                        .HasForeignKey("UserRolePermissionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Permission");
+
+                    b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.UserRole", b =>
+                {
+                    b.HasOne("SchoolFaceRecognition.Core.Entities.Auth.Role", "Role")
+                        .WithMany("UserRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-                {
-                    b.HasOne("SchoolFaceRecognition.Core.Entities.AppUser", null)
-                        .WithMany()
+                    b.HasOne("SchoolFaceRecognition.Core.Entities.Auth.User", "User")
+                        .WithMany("UserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
-                {
-                    b.HasOne("SchoolFaceRecognition.Core.Entities.AppUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+                    b.Navigation("Role");
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SchoolFaceRecognition.Core.Entities.AppUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
-                {
-                    b.HasOne("SchoolFaceRecognition.Core.Entities.AppUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Continuity", b =>
@@ -634,18 +981,6 @@ namespace SchoolFaceRecognition.DAL.Migrations
                     b.Navigation("Speciality");
                 });
 
-            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.RefreshToken", b =>
-                {
-                    b.HasOne("SchoolFaceRecognition.Core.Entities.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_REFRESH_TOKEN_USER_ID");
-
-                    b.Navigation("AppUser");
-                });
-
             modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Student", b =>
                 {
                     b.HasOne("SchoolFaceRecognition.Core.Entities.Group", "Group")
@@ -655,6 +990,36 @@ namespace SchoolFaceRecognition.DAL.Migrations
                         .HasConstraintName("FK_STUDENTS_GROUP_ID");
 
                     b.Navigation("Group");
+                });
+
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.Audience", b =>
+                {
+                    b.Navigation("ClientAudiences");
+                });
+
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.Client", b =>
+                {
+                    b.Navigation("ClientAudiences");
+                });
+
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.Permission", b =>
+                {
+                    b.Navigation("RolePermissions");
+                });
+
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.Role", b =>
+                {
+                    b.Navigation("RolePermissions");
+
+                    b.Navigation("UserRoles");
+                });
+
+            modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Auth.User", b =>
+                {
+                    b.Navigation("RefreshToken")
+                        .IsRequired();
+
+                    b.Navigation("UserRoles");
                 });
 
             modelBuilder.Entity("SchoolFaceRecognition.Core.Entities.Group", b =>

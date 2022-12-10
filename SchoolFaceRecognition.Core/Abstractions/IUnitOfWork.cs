@@ -9,7 +9,8 @@ namespace SchoolFaceRecognition.Core.Abstractions
         IGroupRepository GroupRepository{ get; }
         ISpecialityRepository SpecialityRepository { get; }
         IContinuityRepository ContinuityRepository { get; }
-        ITokenRepository TokenRepository { get; }
+        IUserRepository UserRepository { get; }
+        IRefreshTokenRepository RefreshTokenRepository { get; }
 
         Task CommitAsync(CancellationToken cancellationToken = default);
         Task CommitAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default);

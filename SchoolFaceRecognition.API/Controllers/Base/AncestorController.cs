@@ -1,37 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig;
 using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig.Base;
-using System.Net;
 
 namespace SchoolFaceRecognition.API.Controllers.Base
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
+    [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ErrorResponse))]
+    [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ErrorResponse))]
     public class AncestorController : ControllerBase
     {
-        protected async Task<IActionResult> ResultAsync(Task<Response> response)
+        private protected async Task<IActionResult> ResultAsync(Task<Response> response)
         {
             Response result = await response;
 
-            return result.StatusCode switch
-            {
-                HttpStatusCode.OK => Ok(result),
-                HttpStatusCode.NotFound => NotFound(result),
-                HttpStatusCode.BadRequest => BadRequest(result),
-                HttpStatusCode.InternalServerError => StatusCode((int)HttpStatusCode.InternalServerError, result),
-                _ => StatusCode((int)HttpStatusCode.NotFound, result),
-            };
+            return StatusCode((int)result.StatusCode, result);
         }
 
-        protected IActionResult Result(Response response)
+        private protected IActionResult Result(Response response)
         {
-            return response.StatusCode switch
-            {
-                HttpStatusCode.OK => Ok(response),
-                HttpStatusCode.NotFound => NotFound(response),
-                HttpStatusCode.BadRequest => BadRequest(response),
-                HttpStatusCode.InternalServerError => StatusCode((int)HttpStatusCode.InternalServerError, response),
-                _ => StatusCode((int)HttpStatusCode.NotFound, response),
-            };
+            return StatusCode((int)response.StatusCode, response);
         }
     }
 }

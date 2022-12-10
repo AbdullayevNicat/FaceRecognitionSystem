@@ -4,14 +4,10 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Configurations\Filters\**" />
-    <Content Remove="Configurations\Filters\**" />
-    <EmbeddedResource Remove="Configurations\Filters\**" />
-    <None Remove="Configurations\Filters\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.4.0" />
@@ -22,11 +18,16 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.11" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SchoolFaceRecognition.BL\SchoolFaceRecognition.BL.csproj" />
+<<<<<<< HEAD
+=======
+    <ProjectReference Include="..\SchoolFaceRecognition.BL\SchoolFaceRecognition.BL.csproj" />
+>>>>>>> 8265d4d12c9a5f6437c89f63ab78e17d9d2d85ca
     <ProjectReference Include="..\SchoolFaceRecognition.Core\SchoolFaceRecognition.Core.csproj" />
     <ProjectReference Include="..\SchoolFaceRecognition.DAL\SchoolFaceRecognition.DAL.csproj" />
   </ItemGroup>
