@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using SchoolFaceRecognition.Core.Abstractions.Services.Auth;
 using SchoolFaceRecognition.Core.Abstractions.Services.Auths;
 using SchoolFaceRecognition.Core.DTOs.Auth;
 using SchoolFaceRecognition.Core.DTOs.Auths;
@@ -17,10 +18,8 @@ namespace SchoolFaceRecognition.BL.Services.Auths
     {
         private readonly TokenOptionDto _tokenOptionDto;
         private readonly SecurityKey _securityKey;
-        private readonly UserManager<AppUser> _userManager;
 
-        public TokenService(IOptionsSnapshot<TokenOptionDto> _optionsSnapshot,
-                            UserManager<AppUser> userManager)
+        public TokenService(IOptionsSnapshot<TokenOptionDto> _optionsSnapshot
         {
             _tokenOptionDto = _optionsSnapshot.Value;
             _securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenOptionDto.SecurityKey));

@@ -23,17 +23,11 @@ namespace SchoolFaceRecognition.DAL.AutoFac
 
                 //opt.UseOracle(configuration.GetConnectionString("ORACLE"));
 
-<<<<<<< HEAD
-                //opt.UseSqlServer(configuration.GetConnectionString("MSSQL_WORK"));
-
-                opt.UseSqlServer(configuration.GetConnectionString("MSSQL"));
-=======
                 opt.
                 //UseSqlServer(configuration.GetConnectionString("MSSQL_WORK"))
                 UseSqlServer(configuration.GetConnectionString("MSSQL"))
                     //.LogTo(ContextHelper.LogToFile, LogLevel.Information)
                     .LogTo(Console.WriteLine, LogLevel.Information);
->>>>>>> 8265d4d12c9a5f6437c89f63ab78e17d9d2d85ca
 
                 return new SchoolDbContext(opt.Options);
 
@@ -51,6 +45,6 @@ namespace SchoolFaceRecognition.DAL.AutoFac
             base.Load(builder);
         }
 
-       
+
     }
 }
