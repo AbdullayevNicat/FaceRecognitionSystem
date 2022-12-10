@@ -150,16 +150,25 @@
   <data name="UserInternalErrorMessage" xml:space="preserve">
     <value>Daxili xəta baş verdi.</value>
   </data>
+  <data name="UserIsBlocked" xml:space="preserve">
+    <value>İstifadəçi bloklanıb.</value>
+  </data>
   <data name="UserIsNotAuthorizedMessage" xml:space="preserve">
     <value>İcazəniz yoxdur.</value>
   </data>
   <data name="UserNameCanNotBeEmpty" xml:space="preserve">
     <value>İstifadəçi adı boş ola bilməz.</value>
   </data>
+  <data name="UserNameOrPasswordIsFalse" xml:space="preserve">
+    <value>İsdifadəçi adı və ya parol səhvdir.</value>
+  </data>
   <data name="UserNotFoundMessage" xml:space="preserve">
     <value>İstifadəçi tapılmadı.</value>
   </data>
   <data name="UserPasswordCanNotBeEmpty" xml:space="preserve">
     <value>Parol boş ola bilməz.</value>
+  </data>
+  <data name="UserTokenHasExpired" xml:space="preserve">
+    <value>Tokenin vaxtı bitib.</value>
   </data>
 </root>

@@ -158,5 +158,23 @@ namespace SchoolFaceRecognition.SharedLibrary {
                 return ResourceManager.GetString("PasswordTooShort", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to İstifadəçi artıq var..
+        /// </summary>
+        public static string UserAlreadyHasTaken {
+            get {
+                return ResourceManager.GetString("UserAlreadyHasTaken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to İstifadəçi adı qısadır..
+        /// </summary>
+        public static string UserNameTooShort {
+            get {
+                return ResourceManager.GetString("UserNameTooShort", resourceCulture);
+            }
+        }
     }
 }

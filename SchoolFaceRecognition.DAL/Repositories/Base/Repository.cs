@@ -12,7 +12,6 @@ namespace SchoolFaceRecognition.DAL.Repositories.Base
         public Repository(SchoolDbContext schoolDbContext)
         {
             _schoolDbContext = schoolDbContext;
-
         }
 
         public virtual async Task AddArrangeAsync(CancellationToken cancellationToken = default, params T[] entities)
@@ -55,7 +54,7 @@ namespace SchoolFaceRecognition.DAL.Repositories.Base
             _schoolDbContext.Update(entity);
         }
 
-        public async Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> expression, CancellationToken cancellationToken = default)
+        public virtual async Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> expression, CancellationToken cancellationToken = default)
         {
              return await _schoolDbContext.Set<T>().FirstOrDefaultAsync(expression, cancellationToken);
         }

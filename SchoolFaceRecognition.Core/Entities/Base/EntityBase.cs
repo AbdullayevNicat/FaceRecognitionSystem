@@ -2,7 +2,7 @@
 
 namespace SchoolFaceRecognition.Core.Entities.Base
 {
-    public class EntityBase : IEntity
+    public abstract class EntityBase : IEntity
     {
         public int Id { get;  init; }
         public bool IsDeleted { get; set; }

@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.StackExchangeRedis;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using SchoolFaceRecognition.API.Configurations.Helpers;
 using SchoolFaceRecognition.BL.AutoMappers;
-using SchoolFaceRecognition.Core.DTOs.Auths;
-using SchoolFaceRecognition.Core.DTOs.Config;
-using SchoolFaceRecognition.Core.Entities;
-using SchoolFaceRecognition.DAL.AppDbContext;
+using SchoolFaceRecognition.Core.DTOs.Auth;
+using System.Reflection;
 using System.Text;
 
 namespace SchoolFaceRecognition.API.Configurations.Extentions
@@ -49,35 +47,10 @@ namespace SchoolFaceRecognition.API.Configurations.Extentions
                     new List<string>()
                     }
                 });
+
+                var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                opt.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
             });
-
-            return serviceCollection;
-        }
-
-        public static IServiceCollection AddAuthenticationExtension(this IServiceCollection serviceCollection, IConfiguration configuration)
-        {
-            serviceCollection.AddAuthentication(opt =>
-            {
-                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, opt =>
-            {
-                TokenOptionDto tokenOption = configuration.GetSection("TokenOption").Get<TokenOptionDto>();
-
-                opt.TokenValidationParameters = new TokenValidationParameters()
-                {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
-
-                    ValidIssuer = tokenOption.Issuer,
-                    ValidAudience = tokenOption.Audience.First(),
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenOption.SecurityKey)),
-                    ClockSkew = TimeSpan.Zero,
-                };
-            });
-
 
             return serviceCollection;
         }
@@ -92,22 +65,51 @@ namespace SchoolFaceRecognition.API.Configurations.Extentions
             return serviceCollection;
         }
 
-        public static IServiceCollection AddOptionPatterns(this IServiceCollection serviceCollection, IConfiguration configuration)
+        public static IServiceCollection AddOptionPatterns(this IServiceCollection serviceCollection,
+                                                           IConfiguration configuration)
         {
             serviceCollection.Configure<TokenOptionDto>(configuration.GetSection("TokenOption"));
-            serviceCollection.Configure<List<Client>>(configuration.GetSection("Clients"));
 
             return serviceCollection;
         }
 
-        public static IServiceCollection AddIdentityConfigurations(this IServiceCollection serviceCollection)
+        public static IServiceCollection AddJwtConfigs(this IServiceCollection serviceCollection,
+                                                           IConfiguration configuration)
         {
-            serviceCollection.AddIdentity<AppUser, IdentityRole>(opt =>
+            TokenOptionDto tokenOptionDto = configuration.GetSection("TokenOption").Get<TokenOptionDto>();
+
+            serviceCollection.AddAuthentication(opt =>
             {
-                opt.User.RequireUniqueEmail = true;
-            }).AddErrorDescriber<LocalizedIdentityErrorDescriber>()
-                .AddEntityFrameworkStores<SchoolDbContext>()
-                    .AddDefaultTokenProviders();
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
+            }).AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, opt =>
+            {
+                opt.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidIssuer = tokenOptionDto.Issuer,
+                    ValidAudience = tokenOptionDto.Audiences.First(),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenOptionDto.SecurityKey)),
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime= true,
+                    ClockSkew = TimeSpan.Zero,
+                };
+            });
+
+            return serviceCollection;
+        }
+
+        public static IServiceCollection AddRedis(this IServiceCollection serviceCollection,
+                                                           IConfiguration configuration)
+        {
+            serviceCollection.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = configuration.GetSection("Redis").Value;
+            });
+
+            serviceCollection.Add(ServiceDescriptor.Singleton<IDistributedCache, RedisCache>());
 
             return serviceCollection;
         }
