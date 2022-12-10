@@ -1,18 +1,16 @@
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
-using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using SchoolFaceRecognition.API.Configurations.Extentions;
 using SchoolFaceRecognition.API.Configurations.Helpers;
-using SchoolFaceRecognition.Core.Infrastructure.ResponseConfig;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers(options =>
 {
-    options.Conventions.Add(new RouteTokenTransformerConvention(new SlugifyParameterTransformer()));
-    options.OutputFormatters.RemoveType<StringOutputFormatter>();
-    options.OutputFormatters.RemoveType<HttpNoContentOutputFormatter>();
-}).AddXmlSerializerFormatters();
+    options.Conventions.Add(
+        new RouteTokenTransformerConvention(
+            new SlugifyParameterTransformer()));
+});
 
 // Add services to the container.
 builder.Services.AddMappers();

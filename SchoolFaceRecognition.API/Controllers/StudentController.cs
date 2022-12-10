@@ -56,13 +56,5 @@ namespace SchoolFaceRecognition.API.Controllers
         {
             return await ResultAsync(_studentService.CreateAsync(student, cancellationToken));
         }
-
-        [ActionName("Modify")]
-        [HttpPost]
-        public string Edit(StudentDto studentDto)
-        {
-            return "Hello from Edit Method:";
-
-        }
     }
 }

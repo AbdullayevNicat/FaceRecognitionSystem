@@ -23,11 +23,11 @@ namespace SchoolFaceRecognition.DAL.AutoFac
 
                 //opt.UseOracle(configuration.GetConnectionString("ORACLE"));
 
-                opt.UseSqlServer(configuration.GetConnectionString("MSSQL_WORK"))
+                opt.
+                //UseSqlServer(configuration.GetConnectionString("MSSQL_WORK"))
+                UseSqlServer(configuration.GetConnectionString("MSSQL"))
                     //.LogTo(ContextHelper.LogToFile, LogLevel.Information)
                     .LogTo(Console.WriteLine, LogLevel.Information);
-
-                //opt.UseSqlServer(configuration.GetConnectionString("MSSQL"));
 
                 return new SchoolDbContext(opt.Options);
 
