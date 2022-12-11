@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using SchoolFaceRecognition.API.Configurations.Extentions;
 using SchoolFaceRecognition.API.Configurations.Helpers;
 
+const string ORIGIN_POLICY_NAME = "school_origin";
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers(options =>
@@ -34,6 +36,15 @@ builder.Services.AddSwaggerExtension();
 
 builder.Services.AddTransient<ProblemDetailsFactory, CustomProblemDetailsFactory>();
 
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy(name: ORIGIN_POLICY_NAME, op =>
+    {
+        op.AllowAnyOrigin()
+            .AllowAnyHeader()
+                .AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
@@ -47,6 +58,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(ORIGIN_POLICY_NAME);
 
 app.UseAuthentication();
 app.UseAuthorization();

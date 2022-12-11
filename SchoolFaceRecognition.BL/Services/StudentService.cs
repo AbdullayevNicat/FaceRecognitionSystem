@@ -53,7 +53,25 @@ namespace SchoolFaceRecognition.BL.Services
 
             await _unitOfWork.CommitAsync(cancellationToken);
 
-            return new SuccessResponse<StudentDto>(studentDto ,HttpStatusCode.Created);
+            return new SuccessResponse<StudentDto>(studentDto, HttpStatusCode.Created);
+        }
+
+        public async Task<Response> DeleteAsync(int? id, CancellationToken cancellationToken = default)
+        {
+            if (id is null || id < 1)
+                throw new BadRequestException();
+
+            Student student = await _unitOfWork
+                .StudentRepository.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+
+            if (student is null)
+                throw new DataNotFoundException();
+
+            _unitOfWork.StudentRepository.Delete(student);
+
+            await _unitOfWork.CommitAsync(cancellationToken);
+
+            return new Response(HttpStatusCode.Accepted); 
         }
     }
 }
