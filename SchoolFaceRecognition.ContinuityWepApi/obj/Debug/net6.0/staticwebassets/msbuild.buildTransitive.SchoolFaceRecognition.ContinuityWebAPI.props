@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\SchoolFaceRecognition.ContinuityWebAPI.props" />
-</Project>
