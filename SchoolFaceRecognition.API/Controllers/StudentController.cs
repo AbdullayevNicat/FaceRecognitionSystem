@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNetCore.Mvc.Routing;
 using SchoolFaceRecognition.API.Configurations.Filters;
 using SchoolFaceRecognition.API.Controllers.Base;
 using SchoolFaceRecognition.Core.Abstractions.Services;
@@ -57,12 +58,12 @@ namespace SchoolFaceRecognition.API.Controllers
             return await ResultAsync(_studentService.CreateAsync(student, cancellationToken));
         }
 
-        [ActionName("Modify")]
-        [HttpPost]
-        public string Edit(StudentDto studentDto)
+        [HttpDelete]
+        //[HasPermissions(UserRolePermission.Create)]
+        [ProducesResponseType(StatusCodes.Status202Accepted, Type = typeof(Response))]
+        public async Task<IActionResult> Delete(int? id, CancellationToken cancellationToken)
         {
-            return "Hello from Edit Method:";
-
+            return await ResultAsync(_studentService.DeleteAsync(id, cancellationToken));
         }
     }
 }
