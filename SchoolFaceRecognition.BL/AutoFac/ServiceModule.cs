@@ -18,8 +18,6 @@ namespace SchoolFaceRecognition.BL.AutoFac
             builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
             builder.RegisterType<TokenService>().As<ITokenService>().InstancePerLifetimeScope();
             builder.RegisterType<AuthService>().As<IAuthService>().InstancePerLifetimeScope();
-
-            base.Load(builder);
         }
     }
 }
