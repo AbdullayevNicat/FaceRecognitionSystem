@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.AspNetCore.SignalR;
 using SchoolFaceRecognition.API.Configurations.Filters;
 using SchoolFaceRecognition.API.Controllers.Base;
+using SchoolFaceRecognition.API.SignalR;
 using SchoolFaceRecognition.Core.Abstractions.Services;
 using SchoolFaceRecognition.Core.DTOs.Entities;
 using SchoolFaceRecognition.Core.Enums;
@@ -15,9 +18,12 @@ namespace SchoolFaceRecognition.API.Controllers
     public class StudentController : AncestorController
     {
         private readonly IStudentService _studentService;
-        public StudentController(IStudentService studentService)
+        private IHubContext<NotificationHub> _hubContext;
+        public StudentController(IStudentService studentService,
+            IHubContext<NotificationHub> hubContext)
         {
             _studentService = studentService;
+            _hubContext = hubContext;
         }
 
         /// <summary>
@@ -30,6 +36,8 @@ namespace SchoolFaceRecognition.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(SuccessResponse<IEnumerable<StudentDto>>))]
         public async Task<IActionResult> All(CancellationToken cancellationToken)
         {
+            await _hubContext.Clients.All.SendAsync("SendAsync");
+
             return await ResultAsync(_studentService.AllAsync(cancellationToken));
         }
 
@@ -55,6 +63,14 @@ namespace SchoolFaceRecognition.API.Controllers
         public async Task<IActionResult> Create(StudentDto student, CancellationToken cancellationToken)
         {
             return await ResultAsync(_studentService.CreateAsync(student, cancellationToken));
+        }
+
+        [HttpDelete]
+        //[HasPermissions(UserRolePermission.Create)]
+        [ProducesResponseType(StatusCodes.Status202Accepted, Type = typeof(Response))]
+        public async Task<IActionResult> Delete(int? id, CancellationToken cancellationToken)
+        {
+            return await ResultAsync(_studentService.DeleteAsync(id, cancellationToken));
         }
     }
 }

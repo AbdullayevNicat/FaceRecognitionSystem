@@ -7,5 +7,6 @@ namespace SchoolFaceRecognition.Core.Abstractions.Services
     {
         Task<Response> AllAsync(CancellationToken cancellationToken = default);
         Task<Response> CreateAsync(StudentDto StudentDto, CancellationToken cancellationToken = default);
+        Task<Response> DeleteAsync(int? id, CancellationToken cancellationToken = default);
     }
 }

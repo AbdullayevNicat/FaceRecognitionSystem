@@ -1,9 +1,13 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using SchoolFaceRecognition.API.Configurations.Extentions;
 using SchoolFaceRecognition.API.Configurations.Helpers;
+using SchoolFaceRecognition.API.SignalR;
+using SoapCore;
 
-var builder = WebApplication.CreateBuilder(args);
+const string ORIGIN_POLICY_NAME = "school_origin";
+
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers(options =>
 {
@@ -11,6 +15,7 @@ builder.Services.AddControllers(options =>
         new RouteTokenTransformerConvention(
             new SlugifyParameterTransformer()));
 });
+    //.AddXmlSerializerFormatters();
 
 // Add services to the container.
 builder.Services.AddMappers();
@@ -32,10 +37,17 @@ builder.Services.AddJwtConfigs(builder.Configuration);
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSwaggerExtension();
 
-builder.Services.AddTransient<ProblemDetailsFactory, CustomProblemDetailsFactory>();
+builder.Services.AddSoapCore();
 
+builder.Services.AddCORSConfig(ORIGIN_POLICY_NAME);
 
-var app = builder.Build();
+builder.Services.AddServices();
+
+builder.Services.AddSignalR();
+
+builder.Services.AddMediatR(typeof(Program));
+
+WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.UseAppExceptionHandler();
@@ -51,5 +63,12 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseCors(ORIGIN_POLICY_NAME);
+
 app.MapControllers();
+
+app.UseSOAPEndpoints();
+
+app.MapHub<NotificationHub>("/NotificationHub");
+
 app.Run();

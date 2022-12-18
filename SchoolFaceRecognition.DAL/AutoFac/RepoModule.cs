@@ -41,8 +41,6 @@ namespace SchoolFaceRecognition.DAL.AutoFac
             builder.RegisterType<RefreshTokenRepository>().As<IRefreshTokenRepository>().InstancePerLifetimeScope();
 
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
-
-            base.Load(builder);
         }
 
        

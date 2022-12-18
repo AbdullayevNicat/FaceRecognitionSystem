@@ -1,8 +1,12 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.StackExchangeRedis;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using SchoolFaceRecognition.API.Configurations.Helpers;
+using SchoolFaceRecognition.API.MediatR.Behaviours;
 using SchoolFaceRecognition.BL.AutoMappers;
 using SchoolFaceRecognition.Core.DTOs.Auth;
 using System.Reflection;
@@ -12,6 +16,17 @@ namespace SchoolFaceRecognition.API.Configurations.Extentions
 {
     public static class IServiceCollectionExtension
     {
+        public static IServiceCollection AddServices(this IServiceCollection serviceCollection)
+        {
+            //transient
+            serviceCollection.AddTransient<ProblemDetailsFactory,
+                            CustomProblemDetailsFactory>();
+
+            serviceCollection.AddSingleton(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
+
+            return serviceCollection;
+        }
+
         public static IServiceCollection AddSwaggerExtension(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddSwaggerGen(opt =>
@@ -110,6 +125,24 @@ namespace SchoolFaceRecognition.API.Configurations.Extentions
             });
 
             serviceCollection.Add(ServiceDescriptor.Singleton<IDistributedCache, RedisCache>());
+
+            return serviceCollection;
+        }
+
+        public static IServiceCollection AddCORSConfig(this IServiceCollection serviceCollection, string policyName)
+        {
+            serviceCollection.AddCors(opt =>
+            {
+                opt.AddPolicy(name: policyName, op =>
+                {
+                    op
+                    //.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                            .AllowAnyMethod()
+                            .SetIsOriginAllowed((host) => true)
+                                    .AllowCredentials();
+                });
+            });
 
             return serviceCollection;
         }

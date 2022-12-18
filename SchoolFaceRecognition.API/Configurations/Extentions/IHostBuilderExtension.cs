@@ -2,6 +2,7 @@
 using Autofac;
 using SchoolFaceRecognition.BL.AutoFac;
 using SchoolFaceRecognition.DAL.AutoFac;
+using SchoolFaceRecognition.API.AutoFac;
 
 namespace SchoolFaceRecognition.API.Configurations.Extentions
 {
@@ -14,6 +15,7 @@ namespace SchoolFaceRecognition.API.Configurations.Extentions
             {
                 opt.RegisterModule<RepoModule>();
                 opt.RegisterModule<ServiceModule>();
+                opt.RegisterModule<ApiModule>();
             });
 
             return hostBuilder;
