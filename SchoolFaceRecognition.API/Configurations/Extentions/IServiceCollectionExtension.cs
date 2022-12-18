@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.StackExchangeRedis;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SchoolFaceRecognition.API.Configurations.Helpers;
+using SchoolFaceRecognition.API.MediatR.Behaviours;
 using SchoolFaceRecognition.BL.AutoMappers;
 using SchoolFaceRecognition.Core.DTOs.Auth;
 using System.Reflection;
@@ -19,6 +21,8 @@ namespace SchoolFaceRecognition.API.Configurations.Extentions
             //transient
             serviceCollection.AddTransient<ProblemDetailsFactory,
                             CustomProblemDetailsFactory>();
+
+            serviceCollection.AddSingleton(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 
             return serviceCollection;
         }

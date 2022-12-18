@@ -24,8 +24,8 @@ namespace SchoolFaceRecognition.DAL.AutoFac
                 //opt.UseOracle(configuration.GetConnectionString("ORACLE"));
 
                 opt.
-                UseSqlServer(configuration.GetConnectionString("MSSQL_WORK"))
-                //UseSqlServer(configuration.GetConnectionString("MSSQL"))
+                //UseSqlServer(configuration.GetConnectionString("MSSQL_WORK"))
+                UseSqlServer(configuration.GetConnectionString("MSSQL"))
                     //.LogTo(ContextHelper.LogToFile, LogLevel.Information)
                     .LogTo(Console.WriteLine, LogLevel.Information);
 

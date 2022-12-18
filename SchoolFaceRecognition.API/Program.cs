@@ -1,4 +1,4 @@
-using Autofac.Core;
+using MediatR;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using SchoolFaceRecognition.API.Configurations.Extentions;
 using SchoolFaceRecognition.API.Configurations.Helpers;
@@ -14,7 +14,8 @@ builder.Services.AddControllers(options =>
     options.Conventions.Add(
         new RouteTokenTransformerConvention(
             new SlugifyParameterTransformer()));
-}).AddXmlSerializerFormatters();
+});
+    //.AddXmlSerializerFormatters();
 
 // Add services to the container.
 builder.Services.AddMappers();
@@ -43,6 +44,8 @@ builder.Services.AddCORSConfig(ORIGIN_POLICY_NAME);
 builder.Services.AddServices();
 
 builder.Services.AddSignalR();
+
+builder.Services.AddMediatR(typeof(Program));
 
 WebApplication app = builder.Build();
 
