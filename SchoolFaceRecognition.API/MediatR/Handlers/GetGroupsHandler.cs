@@ -22,7 +22,7 @@ namespace SchoolFaceRecognition.API.MediatR.Handlers
 
         public async Task<IEnumerable<GroupDto>> Handle(GetGroupsQuery getGroupsQuery, CancellationToken cancellationToken)
         {
-           IEnumerable<Group> groups = await _unitOfWork.GroupRepository.GetAllAsync(cancellationToken);
+            IEnumerable<Group> groups = await _unitOfWork.GroupRepository.GetGroupsWithSpecialities();
 
             if (groups is null || groups.Any() is false)
                 throw new DataNotFoundException();

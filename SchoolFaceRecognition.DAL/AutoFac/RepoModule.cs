@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using SchoolFaceRecognition.Core.Abstractions;
 using SchoolFaceRecognition.Core.Abstractions.Repositories;
 using SchoolFaceRecognition.DAL.AppDbContext;
+using SchoolFaceRecognition.DAL.Dapper.DbContext;
 using SchoolFaceRecognition.DAL.Helpers;
 using SchoolFaceRecognition.DAL.Repositories;
 using SchoolFaceRecognition.DAL.Repositories.Base;
@@ -24,8 +25,8 @@ namespace SchoolFaceRecognition.DAL.AutoFac
                 //opt.UseOracle(configuration.GetConnectionString("ORACLE"));
 
                 opt.
-                //UseSqlServer(configuration.GetConnectionString("MSSQL_WORK"))
-                UseSqlServer(configuration.GetConnectionString("MSSQL"))
+                UseSqlServer(configuration.GetConnectionString("MSSQL_WORK"))
+                    //UseSqlServer(configuration.GetConnectionString("MSSQL"))
                     //.LogTo(ContextHelper.LogToFile, LogLevel.Information)
                     .LogTo(Console.WriteLine, LogLevel.Information);
 
@@ -41,6 +42,8 @@ namespace SchoolFaceRecognition.DAL.AutoFac
             builder.RegisterType<RefreshTokenRepository>().As<IRefreshTokenRepository>().InstancePerLifetimeScope();
 
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
+
+            builder.RegisterType<DapperContext>().SingleInstance();
         }
 
        
