@@ -9,6 +9,7 @@
     <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
     <UserSecretsId>dc2a35f4-a37a-43cc-a786-69316190afd0</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
